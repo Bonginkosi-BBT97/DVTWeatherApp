@@ -16,6 +16,7 @@
 		DEE7608B2C187826005DE1D8 /* Pods_DVTWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE7608A2C187826005DE1D8 /* Pods_DVTWeatherApp.framework */; };
 		DEE7608C2C187826005DE1D8 /* Pods_DVTWeatherApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEE7608A2C187826005DE1D8 /* Pods_DVTWeatherApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DEE760972C18A981005DE1D8 /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE760962C18A981005DE1D8 /* CurrentWeatherModel.swift */; };
+		DEE760992C18ADEB005DE1D8 /* WeatherAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE760982C18ADEA005DE1D8 /* WeatherAPIError.swift */; };
 		E4FCDEF13E83A4348A624B9D /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		DEE760722C186F7B005DE1D8 /* DVTWeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVTWeatherAppTests.swift; sourceTree = "<group>"; };
 		DEE7608A2C187826005DE1D8 /* Pods_DVTWeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_DVTWeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE760962C18A981005DE1D8 /* CurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherModel.swift; sourceTree = "<group>"; };
+		DEE760982C18ADEA005DE1D8 /* WeatherAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				DEE760962C18A981005DE1D8 /* CurrentWeatherModel.swift */,
+				DEE760982C18ADEA005DE1D8 /* WeatherAPIError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 		};
 		DEE760932C188570005DE1D8 /* Run SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -354,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE760992C18ADEB005DE1D8 /* WeatherAPIError.swift in Sources */,
 				DEE7605F2C186DC3005DE1D8 /* ContentView.swift in Sources */,
 				DEE7605D2C186DC3005DE1D8 /* DVTWeatherApp.swift in Sources */,
 				DEE760972C18A981005DE1D8 /* CurrentWeatherModel.swift in Sources */,
