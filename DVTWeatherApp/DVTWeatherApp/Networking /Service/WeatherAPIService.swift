@@ -18,28 +18,11 @@ class WeatherAPIService {
   }
 
   func getCurrentWeather(city: String) async throws -> ResponseBody {
-    guard let url = URL( string: "\(baseURL)q=\(city)&appid=\(apiToken)&units=metric")
+    guard let url = URL(string: "\(baseURL)q=\(city)&appid=\(apiToken)&units=metric")
     else {
       fatalError("the URL is missing")
     }
-
-    let urlRequest = URLRequest(url: url)
-
-    let (data, response) = try await session.data(for: urlRequest)
-
-    guard let httpResponse = response as? HTTPURLResponse else {
-      throw WeatherAPIError.invalidResponse
-    }
-
-    guard httpResponse.statusCode == 200 else {
-      throw WeatherAPIError.failedRequest(statusCode: httpResponse.statusCode)
-    }
-    do {
-      let decodedData = try JSONDecoder().decode(ResponseBody.self, from: data)
-      return decodedData
-    } catch {
-      throw WeatherAPIError.invalidData
-    }
+    return try await fetchData(from: url)
   }
 
   // HTTP request to get the current weather using latitude and longitude coordinates
@@ -48,7 +31,10 @@ class WeatherAPIService {
     else {
       fatalError("Missing URL")
     }
+    return try await fetchData(from: url)
+  }
 
+  private func fetchData(from url: URL) async throws -> ResponseBody {
     let urlRequest = URLRequest(url: url)
 
     let (data, response) = try await session.data(for: urlRequest)
