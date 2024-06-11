@@ -6,22 +6,29 @@
 //
 
 import XCTest
+@testable import DVTWeatherApp
 
 final class DVTWeatherAppTests: XCTestCase {
-  override func setUpWithError() throws {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
-
-  override func tearDownWithError() throws {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-  }
-
-  func testExample() throws {}
-
-  func testPerformanceExample() throws {
-    // This is an example of a performance test case.
-    measure {
-      // Put the code you want to measure the time of here.
+    
+ let currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=f77ddc0a24c1b09b6e4f6bd66e3bc0ab&units=metric"
+ let cityName = "London"
+    
+    func testGetCurrentWeather_Success() async throws {
+        //GIVEN
+        //WHEN
+        //THEN
     }
-  }
+    
+    func testGetCurrentWeather_Error() async throws {
+        //GIVEN
+        //WHEN
+        //THEN
+    }
+    
+    func testGetCurrentWeather_InvalidData() async throws {
+        //GIVEN
+        //WHEN
+        //THEN
+    }
+    
 }
