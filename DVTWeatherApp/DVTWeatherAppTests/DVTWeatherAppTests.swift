@@ -12,6 +12,7 @@ final class DVTWeatherAppTests: XCTestCase {
   let currentWeatherURL =
     "https://api.openweathermap.org/data/2.5/weather?q=London&appid=f77ddc0a24c1b09b6e4f6bd66e3bc0ab&units=metric"
   let cityName = "London"
+  let mockURLSession = MockURLSession()
 
   func testGetCurrentWeather_Success() async throws {
     // GIVEN
@@ -34,14 +35,13 @@ final class DVTWeatherAppTests: XCTestCase {
       headerFields: nil
     )
 
-    let mockURLSession = MockURLSession()
     mockURLSession.data = jsonData
     mockURLSession.response = urlResponse
 
-    let weatherManager = WeatherAPIService(session: mockURLSession)
+    let weatherAPIService = WeatherAPIService(session: mockURLSession)
 
     // WHEN
-    let weather = try await weatherManager.getCurrentWeather(city: cityName)
+    let weather = try await weatherAPIService.getCurrentWeather(city: cityName)
     // THEN
     XCTAssertEqual(weather.name, cityName)
     XCTAssertEqual(weather.main.temp, 14.75)
@@ -50,8 +50,26 @@ final class DVTWeatherAppTests: XCTestCase {
 
   func testGetCurrentWeather_Error() async throws {
     // GIVEN
-    // WHEN
-    // THEN
+    let urlResponse = HTTPURLResponse(
+      url: URL(string: currentWeatherURL)!,
+      statusCode: 404,
+      httpVersion: nil,
+      headerFields: nil
+    )
+
+    mockURLSession.response = urlResponse
+
+    let weatherAPIService = WeatherAPIService(session: mockURLSession)
+    // WHEN / THEN
+
+    do {
+      _ = try await weatherAPIService.getCurrentWeather(city: cityName)
+      XCTFail("Expected an error but got a success")
+    } catch let WeatherAPIError.failedRequest(statuscode) {
+      XCTAssertEqual(statuscode, 404)
+    } catch {
+      XCTFail("Unexpected error: \(error)")
+    }
   }
 
   func testGetCurrentWeather_InvalidData() async throws {
