@@ -27,7 +27,7 @@ final class DVTWeatherAppTests: XCTestCase {
         "wind": {"speed": 5.66, "deg": 320}
     }
     """.data(using: .utf8)!
-   
+
     let weatherAPIService = WeatherAPIService(session: mockURLSession)
     let urlResponse = HTTPURLResponse(
       url: URL(string: currentWeatherURL)!,
