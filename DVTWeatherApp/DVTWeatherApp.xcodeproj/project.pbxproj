@@ -158,6 +158,7 @@
 				DEE760562C186DC3005DE1D8 /* Frameworks */,
 				DEE760572C186DC3005DE1D8 /* Resources */,
 				DEE7608D2C187826005DE1D8 /* Embed Frameworks */,
+				DEE760922C1880B3005DE1D8 /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -288,6 +289,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DEE760922C1880B3005DE1D8 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -450,6 +470,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DVTWeatherApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 2RWQ79GVQP;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "DVT Weather";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -484,6 +505,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DVTWeatherApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 2RWQ79GVQP;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "DVT Weather";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
