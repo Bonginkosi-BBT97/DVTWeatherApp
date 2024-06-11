@@ -26,14 +26,17 @@ struct ResponseBody: Decodable {
     var icon: String
   }
 
+  // swiftlint:disable identifier_name
   struct MainResponse: Decodable {
     var temp: Double
-    var feelsLike: Double
-    var tempMin: Double
-    var tempMax: Double
+    var feels_like: Double
+    var temp_min: Double
+    var temp_max: Double
     var pressure: Double
     var humidity: Double
   }
+
+  // swiftlint:enable identifier_name
 
   struct WindResponse: Decodable {
     var speed: Double
@@ -41,8 +44,8 @@ struct ResponseBody: Decodable {
   }
 }
 
-// extension ResponseBody.MainResponse {
-//    var feelsLike: Double { return feelsLike }
-//    var tempMin: Double { return tempMin }
-//    var tempMax: Double { return tempMax }
-// }
+extension ResponseBody.MainResponse {
+  var feelsLike: Double { return feels_like }
+  var tempMin: Double { return temp_min }
+  var tempMax: Double { return temp_max }
+}

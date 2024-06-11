@@ -15,8 +15,37 @@ final class DVTWeatherAppTests: XCTestCase {
 
   func testGetCurrentWeather_Success() async throws {
     // GIVEN
+
+    // swiftlint:disable:next non_optional_string_data_conversion line_length
+    let jsonData = """
+    {
+        "coord": {"lon": -0.1257, "lat": 51.5085},
+        "weather": [{"id": 802, "main": "Clouds", "description": "scattered clouds", "icon": "03d"}],
+        "main": {"temp": 14.75, "feels_like": 13.98, "temp_min": 11.83, "temp_max": 16.67, "pressure": 1013, "humidity": 65},
+        "name": "London",
+        "wind": {"speed": 5.66, "deg": 320}
+    }
+    """.data(using: .utf8)!
+
+    let urlResponse = HTTPURLResponse(
+      url: URL(string: currentWeatherURL)!,
+      statusCode: 200,
+      httpVersion: nil,
+      headerFields: nil
+    )
+
+    let mockURLSession = MockURLSession()
+    mockURLSession.data = jsonData
+    mockURLSession.response = urlResponse
+
+    let weatherManager = WeatherAPIService(session: mockURLSession)
+
     // WHEN
+    let weather = try await weatherManager.getCurrentWeather(city: cityName)
     // THEN
+    XCTAssertEqual(weather.name, cityName)
+    XCTAssertEqual(weather.main.temp, 14.75)
+    XCTAssertEqual(weather.weather.first?.description, "scattered clouds")
   }
 
   func testGetCurrentWeather_Error() async throws {
