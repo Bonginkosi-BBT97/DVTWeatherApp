@@ -17,7 +17,7 @@ final class DVTWeatherAppTests: XCTestCase {
   func testGetCurrentWeather_Success() async throws {
     // GIVEN
 
-    // swiftlint:disable:next non_optional_string_data_conversion line_length
+    // swiftlint:disable:next non_optional_string_data_conversion
     let jsonData = """
     {
         "coord": {"lon": -0.1257, "lat": 51.5085},
@@ -27,7 +27,8 @@ final class DVTWeatherAppTests: XCTestCase {
         "wind": {"speed": 5.66, "deg": 320}
     }
     """.data(using: .utf8)!
-
+   
+    let weatherAPIService = WeatherAPIService(session: mockURLSession)
     let urlResponse = HTTPURLResponse(
       url: URL(string: currentWeatherURL)!,
       statusCode: 200,
@@ -37,8 +38,6 @@ final class DVTWeatherAppTests: XCTestCase {
 
     mockURLSession.data = jsonData
     mockURLSession.response = urlResponse
-
-    let weatherAPIService = WeatherAPIService(session: mockURLSession)
 
     // WHEN
     let weather = try await weatherAPIService.getCurrentWeather(city: cityName)
@@ -74,7 +73,27 @@ final class DVTWeatherAppTests: XCTestCase {
 
   func testGetCurrentWeather_InvalidData() async throws {
     // GIVEN
-    // WHEN
-    // THEN
+    // swiftlint:disable:next non_optional_string_data_conversion
+    let jsonData = "invalid json".data(using: .utf8)!
+
+    let urlResponse = HTTPURLResponse(
+      url: URL(string: currentWeatherURL)!,
+      statusCode: 200,
+      httpVersion: nil,
+      headerFields: nil
+    )
+    mockURLSession.data = jsonData
+    mockURLSession.response = urlResponse
+
+    let weatherAPIService = WeatherAPIService(session: mockURLSession)
+
+    // WHEN/THEN
+
+    do {
+      _ = try await weatherAPIService.getCurrentWeather(city: cityName)
+    } catch WeatherAPIError.invalidData {
+    } catch {
+      XCTFail("Unexpected error: \(error)")
+    }
   }
 }
