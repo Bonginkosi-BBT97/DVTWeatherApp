@@ -12,7 +12,7 @@ struct DVTWeatherApp: App {
   @StateObject var locationManager = LocationManager()
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      TabViewHandler()
         .environmentObject(locationManager)
     }
   }

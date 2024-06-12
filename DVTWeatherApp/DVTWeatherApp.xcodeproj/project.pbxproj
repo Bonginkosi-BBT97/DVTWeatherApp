@@ -10,8 +10,9 @@
 		28046E82A024A1A0E72C6266 /* Pods_DVTWeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0FADB66E435B79937BA91E /* Pods_DVTWeatherAppTests.framework */; };
 		DED01CA82C199033003CE221 /* WeatherForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED01CA72C199033003CE221 /* WeatherForecastModel.swift */; };
 		DED01CAA2C19BBE6003CE221 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED01CA92C19BBE6003CE221 /* LocationManager.swift */; };
+		DED01CBC2C19F5AE003CE221 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED01CB82C19F5AE003CE221 /* HomeTabView.swift */; };
 		DEE7605D2C186DC3005DE1D8 /* DVTWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7605C2C186DC3005DE1D8 /* DVTWeatherApp.swift */; };
-		DEE7605F2C186DC3005DE1D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7605E2C186DC3005DE1D8 /* ContentView.swift */; };
+		DEE7605F2C186DC3005DE1D8 /* TabViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7605E2C186DC3005DE1D8 /* TabViewHandler.swift */; };
 		DEE760612C186DC5005DE1D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE760602C186DC5005DE1D8 /* Assets.xcassets */; };
 		DEE760642C186DC5005DE1D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE760632C186DC5005DE1D8 /* Preview Assets.xcassets */; };
 		DEE760732C186F7B005DE1D8 /* DVTWeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE760722C186F7B005DE1D8 /* DVTWeatherAppTests.swift */; };
@@ -55,11 +56,12 @@
 		AD2A2712E56308183634311D /* Pods-DVTWeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVTWeatherAppTests.debug.xcconfig"; path = "Target Support Files/Pods-DVTWeatherAppTests/Pods-DVTWeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7B2237B187FA6B05097C85E /* Pods-DVTWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVTWeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-DVTWeatherApp/Pods-DVTWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DED01CA72C199033003CE221 /* WeatherForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastModel.swift; sourceTree = "<group>"; };
-		DED01CA92C19BBE6003CE221 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = "Networking /LocationManager.swift"; sourceTree = "<group>"; };
+		DED01CA92C19BBE6003CE221 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DED01CAB2C19C295003CE221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DED01CB82C19F5AE003CE221 /* HomeTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		DEE760592C186DC3005DE1D8 /* DVTWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVTWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE7605C2C186DC3005DE1D8 /* DVTWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVTWeatherApp.swift; sourceTree = "<group>"; };
-		DEE7605E2C186DC3005DE1D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DEE7605E2C186DC3005DE1D8 /* TabViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewHandler.swift; sourceTree = "<group>"; };
 		DEE760602C186DC5005DE1D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEE760632C186DC5005DE1D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DEE760702C186F7B005DE1D8 /* DVTWeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DVTWeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,71 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DED01CAC2C19EDF6003CE221 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				DED01CBB2C19F5AE003CE221 /* HomeTab */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		DED01CAD2C19EE26003CE221 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DED01CAE2C19EE43003CE221 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DED01CB02C19F18F003CE221 /* Model */,
+				DED01CAF2C19F0CF003CE221 /* View */,
+				DEE7605C2C186DC3005DE1D8 /* DVTWeatherApp.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DED01CAF2C19F0CF003CE221 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEE7605E2C186DC3005DE1D8 /* TabViewHandler.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DED01CB02C19F18F003CE221 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DED01CA92C19BBE6003CE221 /* LocationManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DED01CB92C19F5AE003CE221 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DED01CB82C19F5AE003CE221 /* HomeTabView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DED01CBA2C19F5AE003CE221 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DED01CBB2C19F5AE003CE221 /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				DED01CB92C19F5AE003CE221 /* View */,
+				DED01CBA2C19F5AE003CE221 /* ViewModel */,
+			);
+			path = HomeTab;
+			sourceTree = "<group>";
+		};
 		DEE760502C186DC3005DE1D8 = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +204,9 @@
 			children = (
 				DED01CAB2C19C295003CE221 /* Info.plist */,
 				DEE760942C18A901005DE1D8 /* Networking  */,
-				DEE7605C2C186DC3005DE1D8 /* DVTWeatherApp.swift */,
-				DED01CA92C19BBE6003CE221 /* LocationManager.swift */,
-				DEE7605E2C186DC3005DE1D8 /* ContentView.swift */,
+				DED01CAD2C19EE26003CE221 /* Components */,
+				DED01CAC2C19EDF6003CE221 /* Features */,
+				DED01CAE2C19EE43003CE221 /* Core */,
 				DEE760602C186DC5005DE1D8 /* Assets.xcassets */,
 				DEE760622C186DC5005DE1D8 /* Preview Content */,
 			);
@@ -383,8 +450,9 @@
 				DEE7609E2C18AF89005DE1D8 /* MockURLSession.swift in Sources */,
 				DED01CA82C199033003CE221 /* WeatherForecastModel.swift in Sources */,
 				DEE7609C2C18AF54005DE1D8 /* WeatherAPIService.swift in Sources */,
+				DED01CBC2C19F5AE003CE221 /* HomeTabView.swift in Sources */,
 				DEE760992C18ADEB005DE1D8 /* WeatherAPIError.swift in Sources */,
-				DEE7605F2C186DC3005DE1D8 /* ContentView.swift in Sources */,
+				DEE7605F2C186DC3005DE1D8 /* TabViewHandler.swift in Sources */,
 				DED01CAA2C19BBE6003CE221 /* LocationManager.swift in Sources */,
 				DEE7605D2C186DC3005DE1D8 /* DVTWeatherApp.swift in Sources */,
 				DEE760972C18A981005DE1D8 /* CurrentWeatherModel.swift in Sources */,
