@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  LocationManager.swift
 //  DVTWeatherApp
 //
 //  Created by Bonginkosi Tshabalala on 2024/06/12.
@@ -9,7 +9,6 @@ import Foundation
 import MapKit
 
 @MainActor
-
 class LocationManager: NSObject, ObservableObject {
   @Published var location: CLLocation?
   @Published var region = MKCoordinateRegion()
