@@ -33,6 +33,7 @@ class HomeTabViewModel: ObservableObject {
       .store(in: &cancellables) // Store the subscription
   }
 
+    //MARK: I Only need this, the location can be recieved from the view
   private func fetchWeather(for location: CLLocation) {
     Task {
       do {
