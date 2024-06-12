@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CurrentWeatherCardView: View {
-  let weatherValue: String
+  let temperatureValue: String
   let title: String
 
   var body: some View {
     VStack(alignment: .center, spacing: -10) {
       ZStack(alignment: .topTrailing) {
-        Text(weatherValue)
+        Text(temperatureValue)
           .font(.subheadline)
           .fontWeight(.bold)
         Text("°")
@@ -25,10 +25,10 @@ struct CurrentWeatherCardView: View {
         .font(.caption)
     }
     .padding()
-    .foregroundColor(.gray)
+    .foregroundColor(.white)
   }
 }
 
 #Preview {
-  CurrentWeatherCardView(weatherValue: "19", title: "min")
+  CurrentWeatherCardView(temperatureValue: "19", title: "min")
 }
