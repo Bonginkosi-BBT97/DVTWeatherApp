@@ -22,7 +22,7 @@ struct CurrentWeatherCardView: View {
           .offset(x: 10, y: -12)
       }
       Text(title)
-            .font(.subheadline)
+        .font(.subheadline)
     }
     .padding()
     .foregroundColor(.white)
