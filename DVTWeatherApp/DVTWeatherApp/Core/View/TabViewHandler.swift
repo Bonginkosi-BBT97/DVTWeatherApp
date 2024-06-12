@@ -10,7 +10,7 @@ import SwiftUI
 struct TabViewHandler: View {
   var body: some View {
     TabView {
-      HomeTabView()
+      HomeTabView(currentTemperature: "25", weatherTitle: "SUNNY")
         .tabItem {
           Label("Home", systemImage: "house.fill")
         }
