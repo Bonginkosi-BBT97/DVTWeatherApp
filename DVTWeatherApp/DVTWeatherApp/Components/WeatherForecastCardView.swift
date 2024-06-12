@@ -9,11 +9,25 @@ import SwiftUI
 
 struct WeatherForecastCardView: View {
   let temperatureValue: String
+  let weekDay: String
+  let weatherIconName: String
+
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    HStack {
+      Text(weekDay)
+      Spacer()
+      Image(systemName: weatherIconName)
+      Spacer()
+      ZStack(alignment: .topTrailing) {
+        Text(temperatureValue)
+        Text("°")
+          .offset(x: 10, y: -10)
+      }
+    }
+    .padding([.trailing, .leading], 20)
   }
 }
 
 #Preview {
-  WeatherForecastCardView()
+  WeatherForecastCardView(temperatureValue: "25", weekDay: "Tuesday", weatherIconName: "sun.max")
 }
