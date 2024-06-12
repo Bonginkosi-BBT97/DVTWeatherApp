@@ -19,10 +19,10 @@ struct CurrentWeatherCardView: View {
           .fontWeight(.bold)
         Text("°")
           .font(.title)
-          .offset(x: 10, y: -10)
+          .offset(x: 10, y: -12)
       }
       Text(title)
-        .font(.caption)
+            .font(.subheadline)
     }
     .padding()
     .foregroundColor(.white)

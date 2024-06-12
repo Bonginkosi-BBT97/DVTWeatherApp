@@ -23,12 +23,13 @@ extension HomeTabView {
             .bold()
           Text("°")
             .font(.largeTitle)
-            .offset(x: 10, y: -10)
+            .offset(x: 12, y: -5)
         }
         Text(weatherTitle)
           .font(.largeTitle)
       }
       .foregroundColor(.white)
+      .padding(.bottom, 150)
     }
   }
 
@@ -49,7 +50,7 @@ extension HomeTabView {
     VStack {
       WeatherForecastCardView(temperatureValue: "20", weekDay: "Tuesday", weatherIconName: "sun.max")
     }
-    .padding(.top, 25)
+    .padding(.top, 10)
     .padding(5)
   }
 }
