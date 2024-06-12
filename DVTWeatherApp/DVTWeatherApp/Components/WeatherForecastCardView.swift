@@ -26,6 +26,7 @@ struct WeatherForecastCardView: View {
       }
     }
     .padding([.trailing, .leading], 10)
+    .foregroundColor(.white)
   }
 }
 

@@ -10,17 +10,25 @@ import SwiftUI
 
 extension HomeTabView {
   var topSection: some View {
-    VStack {
-      ZStack(alignment: .topTrailing) {
-        Text(currentTemperature)
+    ZStack {
+      Image(backgroundImageName)
+        .resizable()
+        .scaledToFit()
+        .ignoresSafeArea(.all)
+
+      VStack {
+        ZStack(alignment: .topTrailing) {
+          Text(currentTemperature)
+            .font(.largeTitle)
+            .bold()
+          Text("°")
+            .font(.largeTitle)
+            .offset(x: 10, y: -10)
+        }
+        Text(weatherTitle)
           .font(.largeTitle)
-          .fontWeight(.bold)
-        Text("°")
-          .font(.largeTitle)
-          .offset(x: 10, y: -10)
       }
-      Text(weatherTitle)
-        .font(.largeTitle)
+      .foregroundColor(.white)
     }
   }
 
@@ -33,9 +41,8 @@ extension HomeTabView {
         Spacer()
         CurrentWeatherCardView(temperatureValue: "27", title: "max")
       }
-      Divider()
-        .background(Color.white)
     }
+    .padding(.top, -80)
   }
 
   var bottomSection: some View {
@@ -43,5 +50,6 @@ extension HomeTabView {
       WeatherForecastCardView(temperatureValue: "20", weekDay: "Tuesday", weatherIconName: "sun.max")
     }
     .padding(.top, 25)
+    .padding(5)
   }
 }

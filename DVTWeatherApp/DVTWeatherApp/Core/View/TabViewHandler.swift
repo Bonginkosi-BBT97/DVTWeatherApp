@@ -10,10 +10,15 @@ import SwiftUI
 struct TabViewHandler: View {
   var body: some View {
     TabView {
-      HomeTabView(currentTemperature: "25", weatherTitle: "SUNNY")
-        .tabItem {
-          Label("Home", systemImage: "house.fill")
-        }
+      HomeTabView(
+        currentTemperature: "25",
+        weatherTitle: "SUNNY",
+        backgroundImageName: "sunny",
+        backgroundColor: Color.green
+      )
+      .tabItem {
+        Label("Home", systemImage: "house.fill")
+      }
     }
   }
 }

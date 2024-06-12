@@ -10,18 +10,26 @@ import SwiftUI
 struct HomeTabView: View {
   let currentTemperature: String
   let weatherTitle: String
+  let backgroundImageName: String
+  let backgroundColor: Color
 
   var body: some View {
     VStack {
       topSection
-      Spacer()
+      CustomDividerView()
       middleSection
       bottomSection
       Spacer()
     }
+    .background(backgroundColor)
   }
 }
 
 #Preview {
-  HomeTabView(currentTemperature: "25", weatherTitle: "SUNNY")
+  HomeTabView(
+    currentTemperature: "25",
+    weatherTitle: "SUNNY",
+    backgroundImageName: "sunny",
+    backgroundColor: Color.green
+  )
 }
