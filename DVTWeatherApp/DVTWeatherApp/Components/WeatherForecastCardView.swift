@@ -13,10 +13,11 @@ struct WeatherForecastCardView: View {
   let weatherIconName: String
 
   var body: some View {
-    HStack {
+    HStack(alignment: .center) {
       Text(weekDay)
       Spacer()
       Image(systemName: weatherIconName)
+        .padding(.trailing, 15)
       Spacer()
       ZStack(alignment: .topTrailing) {
         Text(temperatureValue)
@@ -24,7 +25,7 @@ struct WeatherForecastCardView: View {
           .offset(x: 10, y: -10)
       }
     }
-    .padding([.trailing, .leading], 20)
+    .padding([.trailing, .leading], 10)
   }
 }
 
