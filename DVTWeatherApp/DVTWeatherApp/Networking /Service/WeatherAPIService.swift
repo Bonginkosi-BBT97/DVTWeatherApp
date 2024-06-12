@@ -17,6 +17,8 @@ class WeatherAPIService {
     self.session = session
   }
 
+  // MARK: Get Current Weather
+
   func getCurrentWeather(city: String) async throws -> ResponseBody {
     guard let url = URL(string: "\(baseURL)q=\(city)&appid=\(apiToken)&units=metric")
     else {
@@ -53,4 +55,6 @@ class WeatherAPIService {
       throw WeatherAPIError.invalidData
     }
   }
+
+  // MARK: Get 5 days Weather Forecast
 }

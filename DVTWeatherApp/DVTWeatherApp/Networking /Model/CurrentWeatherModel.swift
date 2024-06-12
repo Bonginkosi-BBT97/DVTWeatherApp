@@ -37,7 +37,6 @@ struct ResponseBody: Decodable {
   }
 
   // swiftlint:enable identifier_name
-
   struct WindResponse: Decodable {
     var speed: Double
     var deg: Double
