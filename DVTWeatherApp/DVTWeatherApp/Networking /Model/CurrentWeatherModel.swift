@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ResponseBody: Decodable {
+struct CurrentWeatherResponse: Decodable {
   var coord: CoordinatesResponse
   var weather: [WeatherResponse]
   var main: MainResponse
@@ -43,7 +43,7 @@ struct ResponseBody: Decodable {
   }
 }
 
-extension ResponseBody.MainResponse {
+extension CurrentWeatherResponse.MainResponse {
   var feelsLike: Double { return feels_like }
   var tempMin: Double { return temp_min }
   var tempMax: Double { return temp_max }

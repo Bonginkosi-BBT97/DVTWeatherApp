@@ -16,7 +16,6 @@ final class DVTWeatherAppTests: XCTestCase {
 
   func testGetCurrentWeather_Success() async throws {
     // GIVEN
-
     // swiftlint:disable:next non_optional_string_data_conversion
     let jsonData = """
     {
@@ -59,8 +58,8 @@ final class DVTWeatherAppTests: XCTestCase {
     mockURLSession.response = urlResponse
 
     let weatherAPIService = WeatherAPIService(session: mockURLSession)
-    // WHEN / THEN
 
+    // WHEN / THEN
     do {
       _ = try await weatherAPIService.getCurrentWeather(city: cityName)
       XCTFail("Expected an error but got a success")
@@ -88,7 +87,6 @@ final class DVTWeatherAppTests: XCTestCase {
     let weatherAPIService = WeatherAPIService(session: mockURLSession)
 
     // WHEN/THEN
-
     do {
       _ = try await weatherAPIService.getCurrentWeather(city: cityName)
     } catch WeatherAPIError.invalidData {
