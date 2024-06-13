@@ -6,6 +6,7 @@
 //
 
 @testable import DVTWeatherApp
+import CoreLocation
 import XCTest
 
 final class DVTWeatherAppTests: XCTestCase {
@@ -126,4 +127,40 @@ final class DVTWeatherAppTests: XCTestCase {
     XCTAssertEqual(temperatureResults3, "16", "16.0 should remain 16")
     XCTAssertEqual(temperatureResults4, "17", "16.9 should round up to 17")
   }
+    
+    @MainActor  func testCoordinatesFromLocation() {
+            // GIVEN
+            let viewModel = HomeTabViewModel()
+            let location = CLLocation(latitude: 40.7128, longitude: -74.0060) // Example location
+
+            // WHEN
+        if let (lat, lon) = try? viewModel.coordinates(from: location) {
+            // THEN
+            XCTAssertNotNil(lat)
+            XCTAssertNotNil(lon)
+            XCTAssertEqual(lat, location.coordinate.latitude)
+            XCTAssertEqual(lon, location.coordinate.longitude)
+        } else {
+            XCTFail("Got nil instead of coordinates")
+        }
+
+        
+        }
+
+    @MainActor  func testCoordinatesFromNilLocation() {
+            // GIVEN
+            let viewModel = HomeTabViewModel()
+
+            // WHEN
+        if let (lat, lon) = try? viewModel.coordinates(from: nil) {
+            
+            // THEN
+            XCTAssertEqual(lat, 37.3230)
+            XCTAssertEqual(lon, -122.0322)
+        } else {
+            XCTFail("Got nil instead of coordinates")
+        }
+
+         
+        }
 }

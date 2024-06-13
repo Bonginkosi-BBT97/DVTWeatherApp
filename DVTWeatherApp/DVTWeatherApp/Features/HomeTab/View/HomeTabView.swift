@@ -35,7 +35,7 @@ struct HomeTabView: View {
       homeTabViewModel.$weather
         .sink { weather in
           if let currentWeather = weather {
-            currentTemperature = String(currentWeather.main.temp)
+            currentTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.temp)
             print("Temperature: \(currentWeather.main.temp)")
             print("Weather: \(currentWeather.weather.first?.description ?? "")")
             print("City Name: \(currentWeather.name)")
