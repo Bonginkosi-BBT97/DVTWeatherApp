@@ -32,7 +32,7 @@ class HomeTabViewModel: ObservableObject {
           lon: lon
         )
         self.currentWeather = weatherData
-        updateWeatherProperties()
+        updateCurrentWeatherProperties()
       } catch {
         self.errorMessage = error.localizedDescription
       }
@@ -48,8 +48,7 @@ class HomeTabViewModel: ObservableObject {
           lon: lon
         )
         self.weatherForecast = weatherData
-        // updateWeatherProperties()
-        print(weatherData)
+
       } catch {
         self.errorMessage = error.localizedDescription
       }
@@ -63,12 +62,13 @@ class HomeTabViewModel: ObservableObject {
     return (location.coordinate.latitude, location.coordinate.longitude)
   }
 
-  private func updateWeatherProperties() {
+  private func updateCurrentWeatherProperties() {
     guard let weather = currentWeather else { return }
 
     currentTemperature = roundTemperatureString(from: weather.main.temp)
     currentMinTemperature = roundTemperatureString(from: weather.main.tempMin)
     currentMaxTemperature = roundTemperatureString(from: weather.main.tempMax)
+    print(weather.name)
 
     let weatherDescription = WeatherDescription(description: weather.weather.first?.main ?? "SUNNY")
     currentWeatherDescription = weatherDescription.rawValue
@@ -83,5 +83,9 @@ class HomeTabViewModel: ObservableObject {
   func roundTemperatureString(from temperature: Double) -> String {
     let roundedTemperature = Int(round(temperature))
     return "\(roundedTemperature)"
+  }
+
+  func getDayOfWeek(from dateString: String) -> String? {
+    return ""
   }
 }
