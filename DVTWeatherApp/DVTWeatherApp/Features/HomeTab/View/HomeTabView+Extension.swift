@@ -38,7 +38,7 @@ extension HomeTabView {
       HStack {
         CurrentWeatherCardView(temperatureValue: "19", title: "min")
         Spacer()
-        CurrentWeatherCardView(temperatureValue: "25", title: "Current")
+        CurrentWeatherCardView(temperatureValue: currentTemperature, title: "Current")
         Spacer()
         CurrentWeatherCardView(temperatureValue: "27", title: "max")
       }

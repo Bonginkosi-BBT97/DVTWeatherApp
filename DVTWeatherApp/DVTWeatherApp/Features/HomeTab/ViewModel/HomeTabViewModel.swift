@@ -15,18 +15,26 @@ class HomeTabViewModel: ObservableObject {
 
   private let weatherApiService = WeatherAPIService()
 
-  func fetchWeather(for location: CLLocation) {
+  func fetchWeather(for location: CLLocation?) {
     Task {
       do {
+        let (lat, lon) = try coordinates(from: location)
         let weatherData = try await weatherApiService.getCurrentWeatherByCoordinates(
-          lat: location.coordinate.latitude,
-          lon: location.coordinate.longitude
+          lat: lat,
+          lon: lon
         )
         self.weather = weatherData
       } catch {
         self.errorMessage = error.localizedDescription
       }
     }
+  }
+
+  func coordinates(from location: CLLocation?) throws -> (Double, Double) {
+    guard let location = location else {
+      return (37.3230, -122.0322)
+    }
+    return (location.coordinate.latitude, location.coordinate.longitude)
   }
 
   func roundTemperatureString(from temperature: Double) -> String {
