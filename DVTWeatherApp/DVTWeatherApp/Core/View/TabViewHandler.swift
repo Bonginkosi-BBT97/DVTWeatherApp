@@ -12,13 +12,7 @@ struct TabViewHandler: View {
   var body: some View {
     TabView {
       HomeTabView(
-        homeTabViewModel: HomeTabViewModel(),
-        currentTemperature: "25",
-        currentMinTemperature: "30",
-        currentMaxTemperature: "19",
-        currentWeatherDescription: "SUNNY",
-        backgroundImageName: "sunny",
-        backgroundColor: Color.green
+        homeTabViewModel: HomeTabViewModel()
       )
       .tabItem {
         Label("Home", systemImage: "house.fill")

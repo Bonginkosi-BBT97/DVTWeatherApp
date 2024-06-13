@@ -11,21 +11,21 @@ import SwiftUI
 extension HomeTabView {
   var topSection: some View {
     ZStack {
-      Image(backgroundImageName)
+      Image(homeTabViewModel.backgroundImageName)
         .resizable()
         .scaledToFit()
         .ignoresSafeArea(.all)
 
       VStack {
         ZStack(alignment: .topTrailing) {
-          Text(currentTemperature)
+          Text(homeTabViewModel.currentTemperature)
             .font(.largeTitle)
             .bold()
           Text("°")
             .font(.largeTitle)
             .offset(x: 12, y: -5)
         }
-        Text(currentWeatherDescription)
+        Text(homeTabViewModel.currentWeatherDescription)
           .font(.largeTitle)
       }
       .foregroundColor(.white)
@@ -36,11 +36,11 @@ extension HomeTabView {
   var middleSection: some View {
     VStack {
       HStack {
-        CurrentWeatherCardView(temperatureValue: currentMinTemperature, title: "min")
+        CurrentWeatherCardView(temperatureValue: homeTabViewModel.currentMinTemperature, title: "min")
         Spacer()
-        CurrentWeatherCardView(temperatureValue: currentTemperature, title: "Current")
+        CurrentWeatherCardView(temperatureValue: homeTabViewModel.currentTemperature, title: "Current")
         Spacer()
-        CurrentWeatherCardView(temperatureValue: currentMaxTemperature, title: "max")
+        CurrentWeatherCardView(temperatureValue: homeTabViewModel.currentMaxTemperature, title: "max")
       }
     }
     .padding(.top, -80)
