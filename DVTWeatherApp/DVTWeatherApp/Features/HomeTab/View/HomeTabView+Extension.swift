@@ -50,10 +50,11 @@ extension HomeTabView {
     VStack {
       if locationManager.location != nil {
         ForEach(0..<min(homeTabViewModel.forecastDaysOfWeek.count, 5), id: \.self) { index in
+
           WeatherForecastCardView(
             temperatureValue: homeTabViewModel.forecastTemperatures[index],
             weekDay: homeTabViewModel.forecastDaysOfWeek[index],
-            weatherIconName: "sun.max" 
+            weatherIconName: homeTabViewModel.forecastIconNames[index]
           )
           .padding(.bottom)
         }

@@ -22,6 +22,7 @@ class HomeTabViewModel: ObservableObject {
   @Published var forecastDaysOfWeek: [String] = []
   @Published var forecastTemperatures: [String] = []
   @Published var forecastDescriptions: [String] = []
+  @Published var forecastIconNames: [String] = []
 
   private let weatherApiService = WeatherAPIService()
   private var currentWeather: CurrentWeatherResponse?
@@ -136,6 +137,14 @@ class HomeTabViewModel: ObservableObject {
         forecastDaysOfWeek.append(detail.day)
         forecastTemperatures.append(roundTemperatureString(from: Double(detail.temperature) ?? 0.0))
         forecastDescriptions.append(detail.description)
+
+        if let weatherDescription = WeatherDescription(rawValue: detail.description.uppercased()) {
+          let iconName = ForecastIconNameEnum(description: weatherDescription).rawValue
+          forecastIconNames.append(iconName)
+        } else {
+          forecastIconNames.append(ForecastIconNameEnum(description: .unknown).rawValue)
+        }
+
         uniqueDays.insert(detail.day)
         printedDaysCount += 1
       }
