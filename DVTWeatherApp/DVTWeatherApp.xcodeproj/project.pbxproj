@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28046E82A024A1A0E72C6266 /* Pods_DVTWeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0FADB66E435B79937BA91E /* Pods_DVTWeatherAppTests.framework */; };
+		DEB7CE4F2C1B08B100851568 /* WeatherDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE4E2C1B08B100851568 /* WeatherDescription.swift */; };
 		DEBD26862C1A258C003C85C7 /* HomeTabView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBD26852C1A258C003C85C7 /* HomeTabView+Extension.swift */; };
 		DEC36ECE2C1A30E10055A435 /* CustomDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC36ECD2C1A30E10055A435 /* CustomDividerView.swift */; };
 		DEC36ED02C1A34CE0055A435 /* HomeTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC36ECF2C1A34CE0055A435 /* HomeTabViewModel.swift */; };
@@ -60,6 +61,7 @@
 		76C8EB9E5DD1DB46A47393EB /* Pods-DVTWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVTWeatherApp.release.xcconfig"; path = "Target Support Files/Pods-DVTWeatherApp/Pods-DVTWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		AD2A2712E56308183634311D /* Pods-DVTWeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVTWeatherAppTests.debug.xcconfig"; path = "Target Support Files/Pods-DVTWeatherAppTests/Pods-DVTWeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7B2237B187FA6B05097C85E /* Pods-DVTWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVTWeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-DVTWeatherApp/Pods-DVTWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DEB7CE4E2C1B08B100851568 /* WeatherDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDescription.swift; sourceTree = "<group>"; };
 		DEBD26852C1A258C003C85C7 /* HomeTabView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeTabView+Extension.swift"; sourceTree = "<group>"; };
 		DEC36ECD2C1A30E10055A435 /* CustomDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDividerView.swift; sourceTree = "<group>"; };
 		DEC36ECF2C1A34CE0055A435 /* HomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewModel.swift; sourceTree = "<group>"; };
@@ -122,6 +124,14 @@
 				14EAA5FC0952A71D6642AA1D /* Pods-DVTWeatherAppTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DEB7CE4D2C1B088C00851568 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEB7CE4E2C1B08B100851568 /* WeatherDescription.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DED01CAC2C19EDF6003CE221 /* Features */ = {
@@ -188,6 +198,7 @@
 		DED01CBB2C19F5AE003CE221 /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
+				DEB7CE4D2C1B088C00851568 /* Model */,
 				DED01CB92C19F5AE003CE221 /* View */,
 				DED01CBA2C19F5AE003CE221 /* ViewModel */,
 			);
@@ -473,6 +484,7 @@
 				DED01CC02C1A009F003CE221 /* WeatherForecastCardView.swift in Sources */,
 				DEE7605F2C186DC3005DE1D8 /* TabViewHandler.swift in Sources */,
 				DED01CAA2C19BBE6003CE221 /* LocationManager.swift in Sources */,
+				DEB7CE4F2C1B08B100851568 /* WeatherDescription.swift in Sources */,
 				DEE7605D2C186DC3005DE1D8 /* DVTWeatherApp.swift in Sources */,
 				DEE760972C18A981005DE1D8 /* CurrentWeatherModel.swift in Sources */,
 				DEC36ED02C1A34CE0055A435 /* HomeTabViewModel.swift in Sources */,

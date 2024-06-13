@@ -38,7 +38,12 @@ struct HomeTabView: View {
         .sink { weather in
           if let currentWeather = weather {
             currentTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.temp)
-            currentWeatherDescription = currentWeather.weather.first?.main.description.uppercased() ?? ""
+
+            let weatherDescription =
+              WeatherDescription(description: "\(currentWeather.weather.first?.main.description ?? "")")
+
+            currentWeatherDescription = "\(weatherDescription)".uppercased()
+
             currentMinTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.tempMin)
             currentMaxTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.tempMax)
 
