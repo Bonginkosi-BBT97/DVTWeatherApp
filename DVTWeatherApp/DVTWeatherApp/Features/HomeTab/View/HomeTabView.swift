@@ -20,7 +20,7 @@ struct HomeTabView: View {
   @State var currentWeatherDescription: String
 
   @State var backgroundImageName: String
-  let backgroundColor: Color
+  @State var backgroundColor: Color
 
   var body: some View {
     VStack {
@@ -46,7 +46,10 @@ struct HomeTabView: View {
 
             let backgroundImage = BackgroundImageName(description: weatherDescription)
             backgroundImageName = backgroundImage.rawValue
-
+              
+            let backgroundColor = BackgroundColorCode(imageName: backgroundImage)
+              self.backgroundColor = backgroundColor.colorCode
+              
             currentWeatherDescription = weatherDescription.rawValue
 
             currentMinTemperature = homeTabViewModel
