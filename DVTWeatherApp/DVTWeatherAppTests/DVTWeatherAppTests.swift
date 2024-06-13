@@ -114,18 +114,21 @@ final class DVTWeatherAppTests: XCTestCase {
     let temperature2 = 16.5
     let temperature3 = 16.0
     let temperature4 = 16.9
+    let temperature5 = 16.2
 
     // WHEN
     let temperatureResults1 = homeTabViewModel.roundTemperatureString(from: temperature1)
     let temperatureResults2 = homeTabViewModel.roundTemperatureString(from: temperature2)
     let temperatureResults3 = homeTabViewModel.roundTemperatureString(from: temperature3)
     let temperatureResults4 = homeTabViewModel.roundTemperatureString(from: temperature4)
+    let temperatureResults5 = homeTabViewModel.roundTemperatureString(from: temperature5)
 
     // THEN
     XCTAssertEqual(temperatureResults1, "17", "16.7 should round up tp 17")
     XCTAssertEqual(temperatureResults2, "17", "16.5 should round up to 17")
     XCTAssertEqual(temperatureResults3, "16", "16.0 should remain 16")
     XCTAssertEqual(temperatureResults4, "17", "16.9 should round up to 17")
+    XCTAssertEqual(temperatureResults5, "16", "16.2 should round down to 16")
   }
 
   @MainActor func testCoordinatesFromLocation() {
