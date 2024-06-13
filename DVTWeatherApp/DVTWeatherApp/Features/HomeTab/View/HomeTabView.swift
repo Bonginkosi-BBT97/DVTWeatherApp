@@ -15,6 +15,8 @@ struct HomeTabView: View {
   @State private var cancellables: Set<AnyCancellable> = []
 
   @State var currentTemperature: String
+  @State var currentMinTemperature: String
+  @State var currentMaxTemperature: String
   @State var currentWeatherDescription: String
 
   let backgroundImageName: String
@@ -36,11 +38,12 @@ struct HomeTabView: View {
         .sink { weather in
           if let currentWeather = weather {
             currentTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.temp)
-            currentWeatherDescription = currentWeather.weather.first?.description.uppercased() ?? ""
-              
-            print("Temperature: \(currentWeather.main.temp)")
-            print("Weather: \(currentWeather.weather.first?.description ?? "")")
-            print("City Name: \(currentWeather.name)")
+            currentWeatherDescription = currentWeather.weather.first?.main.description.uppercased() ?? ""
+            currentMinTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.tempMin)
+            currentMaxTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.tempMax)
+
+            print("\(currentWeather.weather.first?.main.description.uppercased() ?? "")")
+            print("\(currentWeather.weather.first?.description.uppercased() ?? "")")
           }
         }
         .store(in: &cancellables)
@@ -48,11 +51,16 @@ struct HomeTabView: View {
   }
 }
 
-#Preview {
-  HomeTabView(
-    homeTabViewModel: HomeTabViewModel(), currentTemperature: "25",
-    currentWeatherDescription: "SUNNY",
-    backgroundImageName: "sunny",
-    backgroundColor: Color.green
-  )
-}
+// #Preview {
+//  HomeTabView(
+//    locationManager: EnvironmentObject<LocationManager>,
+//    homeTabViewModel: HomeTabViewModel(),
+//    currentTemperature:  "25",
+//    currentMinTemperature: "19",
+//    currentMaxTemperature:"30",
+//    currentWeatherDescription:"SUNNY" ,
+//    backgroundImageName:"sunny"
+//    , backgroundColor:  Color.green
+//  )
+//
+// }

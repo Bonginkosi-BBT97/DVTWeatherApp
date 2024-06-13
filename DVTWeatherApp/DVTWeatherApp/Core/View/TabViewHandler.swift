@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct TabViewHandler: View {
+  @StateObject private var locationManager = LocationManager()
   var body: some View {
     TabView {
       HomeTabView(
+        homeTabViewModel: HomeTabViewModel(),
         currentTemperature: "25",
+        currentMinTemperature: "30",
+        currentMaxTemperature: "19",
         currentWeatherDescription: "SUNNY",
         backgroundImageName: "sunny",
         backgroundColor: Color.green
@@ -19,6 +23,7 @@ struct TabViewHandler: View {
       .tabItem {
         Label("Home", systemImage: "house.fill")
       }
+      .environmentObject(locationManager)
     }
   }
 }

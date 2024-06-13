@@ -36,11 +36,11 @@ extension HomeTabView {
   var middleSection: some View {
     VStack {
       HStack {
-        CurrentWeatherCardView(temperatureValue: "19", title: "min")
+        CurrentWeatherCardView(temperatureValue: currentMinTemperature, title: "min")
         Spacer()
         CurrentWeatherCardView(temperatureValue: currentTemperature, title: "Current")
         Spacer()
-        CurrentWeatherCardView(temperatureValue: "27", title: "max")
+        CurrentWeatherCardView(temperatureValue: currentMaxTemperature, title: "max")
       }
     }
     .padding(.top, -80)
