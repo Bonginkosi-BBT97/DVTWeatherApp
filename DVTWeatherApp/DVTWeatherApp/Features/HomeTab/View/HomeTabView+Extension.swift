@@ -48,7 +48,18 @@ extension HomeTabView {
 
   var bottomSection: some View {
     VStack {
-      WeatherForecastCardView(temperatureValue: "20", weekDay: "Tuesday", weatherIconName: "sun.max")
+      if locationManager.location != nil {
+        ForEach(0..<min(homeTabViewModel.forecastDaysOfWeek.count, 5), id: \.self) { index in
+          WeatherForecastCardView(
+            temperatureValue: homeTabViewModel.forecastTemperatures[index],
+            weekDay: homeTabViewModel.forecastDaysOfWeek[index],
+            weatherIconName: "sun.max" 
+          )
+          .padding(.bottom)
+        }
+      } else {
+        Text("Please Ensure Your Location Can Not Be Accessed")
+      }
     }
     .padding(.top, 10)
     .padding(5)
