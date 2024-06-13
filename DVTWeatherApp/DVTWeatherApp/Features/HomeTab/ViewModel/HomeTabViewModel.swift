@@ -20,9 +20,10 @@ class HomeTabViewModel: ObservableObject {
   @Published var errorMessage: String?
 
   private let weatherApiService = WeatherAPIService()
-  private var weather: CurrentWeatherResponse?
+  private var currentWeather: CurrentWeatherResponse?
+  private var weatherForecast: WeatherForecastResponse?
 
-  func fetchWeather(for location: CLLocation?) {
+  func fetchCurrentWeather(for location: CLLocation?) {
     Task {
       do {
         let (lat, lon) = try coordinates(from: location)
@@ -30,8 +31,25 @@ class HomeTabViewModel: ObservableObject {
           lat: lat,
           lon: lon
         )
-        self.weather = weatherData
+        self.currentWeather = weatherData
         updateWeatherProperties()
+      } catch {
+        self.errorMessage = error.localizedDescription
+      }
+    }
+  }
+
+  func fetchWeatherForecast(for location: CLLocation?) {
+    Task {
+      do {
+        let (lat, lon) = try coordinates(from: location)
+        let weatherData = try await weatherApiService.getWeatherForecastByCoordinates(
+          lat: lat,
+          lon: lon
+        )
+        self.weatherForecast = weatherData
+        // updateWeatherProperties()
+        print(weatherData)
       } catch {
         self.errorMessage = error.localizedDescription
       }
@@ -46,7 +64,7 @@ class HomeTabViewModel: ObservableObject {
   }
 
   private func updateWeatherProperties() {
-    guard let weather = weather else { return }
+    guard let weather = currentWeather else { return }
 
     currentTemperature = roundTemperatureString(from: weather.main.temp)
     currentMinTemperature = roundTemperatureString(from: weather.main.tempMin)
@@ -54,7 +72,7 @@ class HomeTabViewModel: ObservableObject {
 
     let weatherDescription = WeatherDescription(description: weather.weather.first?.main ?? "SUNNY")
     currentWeatherDescription = weatherDescription.rawValue
-    print(currentWeatherDescription)
+
     let backgroundImage = BackgroundImageName(description: weatherDescription)
     backgroundImageName = backgroundImage.rawValue
 

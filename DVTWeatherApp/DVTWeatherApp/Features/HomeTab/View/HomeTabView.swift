@@ -23,7 +23,8 @@ struct HomeTabView: View {
     }
     .background(homeTabViewModel.backgroundColor)
     .onAppear {
-      homeTabViewModel.fetchWeather(for: locationManager.location)
+      homeTabViewModel.fetchCurrentWeather(for: locationManager.location)
+      homeTabViewModel.fetchWeatherForecast(for: locationManager.location)
     }
   }
 }
