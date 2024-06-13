@@ -94,6 +94,9 @@ class HomeTabViewModel: ObservableObject {
   }
 
   func updateWeatherForecast(forecastResponse: WeatherForecastResponse) {
+    var uniqueDays = Set<String>()
+    var printedDaysCount = 0
+
     let forecastDetails = forecastResponse.list.map { forecast -> (
       day: String,
       temperature: String,
@@ -105,6 +108,25 @@ class HomeTabViewModel: ObservableObject {
       let description = forecast.weather.first?.description ?? "No description"
 
       return (day, temperature, description)
+    }
+
+    for detail in forecastDetails {
+      if printedDaysCount >= 5 {
+        break
+      }
+
+      if detail.day == getDayOfWeek(from: DateFormatter.localizedString(
+        from: Date(),
+        dateStyle: .medium,
+        timeStyle: .none
+      )) {
+        continue
+      }
+      if !uniqueDays.contains(detail.day) {
+        print("Day: \(detail.day), Temperature: \(detail.temperature), Description: \(detail.description)")
+        uniqueDays.insert(detail.day)
+        printedDaysCount += 1
+      }
     }
   }
 }
