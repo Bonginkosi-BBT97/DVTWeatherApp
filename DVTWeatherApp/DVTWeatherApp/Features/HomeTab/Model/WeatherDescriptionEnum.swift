@@ -41,26 +41,35 @@ enum WeatherDescription: String {
       self = .drizzle
     case "THUNDERSTORM":
       self = .thunderstorm
-    case "MIST":
-      self = .mist
-    case "SMOKE":
-      self = .smoke
-    case "HAZE":
-      self = .haze
-    case "DUST":
-      self = .dust
-    case "FOG":
-      self = .fog
-    case "SAND":
-      self = .sand
-    case "ASH":
-      self = .ash
-    case "SQUALL":
-      self = .squall
-    case "TORNADO":
-      self = .tornado
+    case "MIST", "SMOKE", "HAZE", "DUST", "FOG", "SAND", "ASH", "SQUALL", "TORNADO":
+      self = WeatherDescription.atmosphere(from: uppercasedDescription)
     default:
       self = .unknown
+    }
+  }
+
+  private static func atmosphere(from description: String) -> WeatherDescription {
+    switch description {
+    case "MIST":
+      return .mist
+    case "SMOKE":
+      return .smoke
+    case "HAZE":
+      return .haze
+    case "DUST":
+      return .dust
+    case "FOG":
+      return .fog
+    case "SAND":
+      return .sand
+    case "ASH":
+      return .ash
+    case "SQUALL":
+      return .squall
+    case "TORNADO":
+      return .tornado
+    default:
+      return .unknown
     }
   }
 }
