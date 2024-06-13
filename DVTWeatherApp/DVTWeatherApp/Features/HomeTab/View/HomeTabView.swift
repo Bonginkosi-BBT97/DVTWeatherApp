@@ -39,26 +39,21 @@ struct HomeTabView: View {
           if let currentWeather = weather {
             currentTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.temp)
 
-            // Initialize WeatherDescription with weather description
             let weatherDescription = WeatherDescription(
               description: currentWeather.weather.first?
                 .main ?? ""
             )
 
-            // Initialize BackgroundImageName with weatherDescription
             let backgroundImage = BackgroundImageName(description: weatherDescription)
             backgroundImageName = backgroundImage.rawValue
 
-            // Update currentWeatherDescription
             currentWeatherDescription = weatherDescription.rawValue
 
-            // Update min and max temperatures
             currentMinTemperature = homeTabViewModel
               .roundTemperatureString(from: currentWeather.main.tempMin)
             currentMaxTemperature = homeTabViewModel
               .roundTemperatureString(from: currentWeather.main.tempMax)
 
-            // Print for debugging
             print("Weather description: \(currentWeather.weather.first?.main ?? "")")
             print("Background image name: \(backgroundImageName)")
           }
