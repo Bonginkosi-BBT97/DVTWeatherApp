@@ -14,6 +14,16 @@ final class DVTWeatherAppTests: XCTestCase {
   let cityName = "London"
   let mockURLSession = MockURLSession()
 
+  var homeTabViewModel: HomeTabViewModel!
+
+  @MainActor override func setUpWithError() throws {
+    homeTabViewModel = HomeTabViewModel()
+  }
+
+  @MainActor override func tearDownWithError() throws {
+    homeTabViewModel = nil
+  }
+
   func testGetCurrentWeather_Success() async throws {
     // GIVEN
     // swiftlint:disable:next non_optional_string_data_conversion
@@ -93,5 +103,27 @@ final class DVTWeatherAppTests: XCTestCase {
     } catch {
       XCTFail("Unexpected error: \(error)")
     }
+  }
+
+  // MARK: Test For The HomeViewModel
+
+  @MainActor func testRoundedTemperatureString() throws {
+    // GIVEN
+    let temperature1 = 16.7
+    let temperature2 = 16.5
+    let temperature3 = 16.0
+    let temperature4 = 16.9
+
+    // WHEN
+    let temperatureResults1 = homeTabViewModel.roundTempratureString(from: temperature1)
+    let temperatureResults2 = homeTabViewModel.roundTempratureString(from: temperature2)
+    let temperatureResults3 = homeTabViewModel.roundTempratureString(from: temperature3)
+    let temperatureResults4 = homeTabViewModel.roundTempratureString(from: temperature4)
+
+    // THEN
+    XCTAssertEqual(temperatureResults1, "17", "16.7 should round up tp 17")
+    XCTAssertEqual(temperatureResults2, "17", "16.5 should round up to 17")
+    XCTAssertEqual(temperatureResults3, "16", "16.0 should remain 16")
+    XCTAssertEqual(temperatureResults4, "17", "16.9 should round up to 17")
   }
 }
