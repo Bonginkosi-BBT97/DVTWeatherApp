@@ -1,5 +1,5 @@
 //
-//  WeatherDescription.swift
+//  WeatherDescriptionEnum.swift
 //  DVTWeatherApp
 //
 //  Created by Bonginkosi Tshabalala on 2024/06/13.
@@ -24,6 +24,8 @@ enum WeatherDescription: String {
       self = .snow
     case "CLOUDS":
       self = .clouds
+    case "CLEAR":
+      self = .clear
     default:
       self = .unknown
     }

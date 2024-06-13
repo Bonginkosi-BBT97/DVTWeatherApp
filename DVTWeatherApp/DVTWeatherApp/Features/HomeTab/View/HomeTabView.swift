@@ -19,7 +19,7 @@ struct HomeTabView: View {
   @State var currentMaxTemperature: String
   @State var currentWeatherDescription: String
 
-  let backgroundImageName: String
+  @State var backgroundImageName: String
   let backgroundColor: Color
 
   var body: some View {
@@ -39,16 +39,28 @@ struct HomeTabView: View {
           if let currentWeather = weather {
             currentTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.temp)
 
-            let weatherDescription =
-              WeatherDescription(description: "\(currentWeather.weather.first?.main.description ?? "")")
+            // Initialize WeatherDescription with weather description
+            let weatherDescription = WeatherDescription(
+              description: currentWeather.weather.first?
+                .main ?? ""
+            )
 
-            currentWeatherDescription = "\(weatherDescription)".uppercased()
+            // Initialize BackgroundImageName with weatherDescription
+            let backgroundImage = BackgroundImageName(description: weatherDescription)
+            backgroundImageName = backgroundImage.rawValue
 
-            currentMinTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.tempMin)
-            currentMaxTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.tempMax)
+            // Update currentWeatherDescription
+            currentWeatherDescription = weatherDescription.rawValue
 
-            print("\(currentWeather.weather.first?.main.description.uppercased() ?? "")")
-            print("\(currentWeather.weather.first?.description.uppercased() ?? "")")
+            // Update min and max temperatures
+            currentMinTemperature = homeTabViewModel
+              .roundTemperatureString(from: currentWeather.main.tempMin)
+            currentMaxTemperature = homeTabViewModel
+              .roundTemperatureString(from: currentWeather.main.tempMax)
+
+            // Print for debugging
+            print("Weather description: \(currentWeather.weather.first?.main ?? "")")
+            print("Background image name: \(backgroundImageName)")
           }
         }
         .store(in: &cancellables)
