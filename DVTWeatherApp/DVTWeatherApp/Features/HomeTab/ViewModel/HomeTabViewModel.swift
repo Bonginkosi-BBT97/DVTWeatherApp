@@ -86,6 +86,10 @@ class HomeTabViewModel: ObservableObject {
   }
 
   func getDayOfWeek(from dateString: String) -> String? {
-    return ""
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    guard let date = formatter.date(from: dateString) else { return nil }
+    formatter.dateFormat = "EEEE"
+    return formatter.string(from: date)
   }
 }
