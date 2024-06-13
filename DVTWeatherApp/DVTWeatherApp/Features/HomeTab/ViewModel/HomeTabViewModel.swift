@@ -19,6 +19,8 @@ class HomeTabViewModel: ObservableObject {
   @Published var backgroundColor: Color = .white
   @Published var errorMessage: String?
 
+  @Published var forecastDaysOfWeek: [String] = []
+
   private let weatherApiService = WeatherAPIService()
   private var currentWeather: CurrentWeatherResponse?
   private var weatherForecast: WeatherForecastResponse?
@@ -93,7 +95,7 @@ class HomeTabViewModel: ObservableObject {
     return formatter.string(from: date)
   }
 
-  func updateWeatherForecast(forecastResponse: WeatherForecastResponse) {
+  private func updateWeatherForecast(forecastResponse: WeatherForecastResponse) {
     var uniqueDays = Set<String>()
     var printedDaysCount = 0
 
@@ -102,28 +104,30 @@ class HomeTabViewModel: ObservableObject {
       temperature: String,
       description: String
     ) in
-
       let day = getDayOfWeek(from: forecast.dtTxt) ?? "Week Day"
       let temperature = String(format: "%.2f", forecast.main.temp)
-      let description = forecast.weather.first?.description ?? "No description"
-
+      let description = forecast.weather.first?.main.description ?? "Description"
       return (day, temperature, description)
     }
+
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let todayDateString = dateFormatter.string(from: Date())
+    let today = getDayOfWeek(from: "\(todayDateString) 00:00:00") ?? "Week Day"
 
     for detail in forecastDetails {
       if printedDaysCount >= 5 {
         break
       }
 
-      if detail.day == getDayOfWeek(from: DateFormatter.localizedString(
-        from: Date(),
-        dateStyle: .medium,
-        timeStyle: .none
-      )) {
+      if detail.day == today {
         continue
       }
+
       if !uniqueDays.contains(detail.day) {
-        print("Day: \(detail.day), Temperature: \(detail.temperature), Description: \(detail.description)")
+        print(
+          "Day: \(detail.day), Temperature: \(roundTemperatureString(from: Double(detail.temperature) ?? 0.0)), Description: \(detail.description)"
+        )
         uniqueDays.insert(detail.day)
         printedDaysCount += 1
       }

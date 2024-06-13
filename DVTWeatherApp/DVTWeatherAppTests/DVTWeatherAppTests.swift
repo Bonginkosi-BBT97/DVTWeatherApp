@@ -169,13 +169,13 @@ final class DVTWeatherAppTests: XCTestCase {
   @MainActor func testGetDayOfWeek() {
     // GIVE "dt_txt": "2022-08-30 18:00:00"
     let dateStringData = [
-      "2024-06-13 00:00:00",
       "2024-06-14 00:00:00",
       "2024-06-15 00:00:00",
       "2024-06-16 00:00:00",
-      "2024-06-17 00:00:00"
+      "2024-06-17 00:00:00",
+      "2024-06-18 00:00:00"
     ]
-    let expectedDaysData = ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"]
+    let expectedDaysData = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday"]
 
     // WHEN
     for (dateString, expectedDays) in zip(dateStringData, expectedDaysData) {
