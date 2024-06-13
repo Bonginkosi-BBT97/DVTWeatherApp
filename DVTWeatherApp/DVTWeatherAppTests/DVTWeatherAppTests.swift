@@ -115,10 +115,10 @@ final class DVTWeatherAppTests: XCTestCase {
     let temperature4 = 16.9
 
     // WHEN
-    let temperatureResults1 = homeTabViewModel.roundTempratureString(from: temperature1)
-    let temperatureResults2 = homeTabViewModel.roundTempratureString(from: temperature2)
-    let temperatureResults3 = homeTabViewModel.roundTempratureString(from: temperature3)
-    let temperatureResults4 = homeTabViewModel.roundTempratureString(from: temperature4)
+    let temperatureResults1 = homeTabViewModel.roundTemperatureString(from: temperature1)
+    let temperatureResults2 = homeTabViewModel.roundTemperatureString(from: temperature2)
+    let temperatureResults3 = homeTabViewModel.roundTemperatureString(from: temperature3)
+    let temperatureResults4 = homeTabViewModel.roundTemperatureString(from: temperature4)
 
     // THEN
     XCTAssertEqual(temperatureResults1, "17", "16.7 should round up tp 17")
