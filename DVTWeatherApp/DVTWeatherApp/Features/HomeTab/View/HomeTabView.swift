@@ -31,7 +31,7 @@ struct HomeTabView: View {
     }
     .background(backgroundColor)
     .onAppear {
-      homeTabViewModel.fetchWeather(for: locationManager.location!)
+      homeTabViewModel.fetchWeather(for: locationManager.location)
       homeTabViewModel.$weather
         .sink { weather in
           if let currentWeather = weather {
