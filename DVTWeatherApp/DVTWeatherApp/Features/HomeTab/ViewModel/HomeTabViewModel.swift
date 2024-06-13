@@ -54,9 +54,6 @@ class HomeTabViewModel: ObservableObject {
         )
         self.weatherForecast = weatherData
         self.updateWeatherForecast(forecastResponse: weatherData)
-        print("Days of the week: \(forecastDaysOfWeek)")
-        print("Temperatures of the week: \(forecastTemperatures)")
-        print("Descriptions of the week: \(forecastDescriptions)")
       } catch {
         self.errorMessage = error.localizedDescription
       }
@@ -76,7 +73,6 @@ class HomeTabViewModel: ObservableObject {
     currentTemperature = roundTemperatureString(from: weather.main.temp)
     currentMinTemperature = roundTemperatureString(from: weather.main.tempMin)
     currentMaxTemperature = roundTemperatureString(from: weather.main.tempMax)
-    print(weather.name)
 
     let weatherDescription = WeatherDescription(description: weather.weather.first?.main ?? "SUNNY")
     currentWeatherDescription = weatherDescription.rawValue
@@ -131,9 +127,6 @@ class HomeTabViewModel: ObservableObject {
       }
 
       if !uniqueDays.contains(detail.day) {
-        print(
-          "Day: \(detail.day), Temperature: \(roundTemperatureString(from: Double(detail.temperature) ?? 0.0)), Description: \(detail.description)"
-        )
         forecastDaysOfWeek.append(detail.day)
         forecastTemperatures.append(roundTemperatureString(from: Double(detail.temperature) ?? 0.0))
         forecastDescriptions.append(detail.description)
