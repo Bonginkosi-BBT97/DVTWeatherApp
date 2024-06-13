@@ -106,7 +106,9 @@ final class DVTWeatherAppTests: XCTestCase {
     }
   }
 
-  // MARK: Test For The HomeViewModel
+  // MARK: - - Test For The HomeViewModel --
+
+  // MARK: Current Weather Tests
 
   @MainActor func testRoundedTemperatureString() throws {
     // GIVEN
@@ -159,6 +161,26 @@ final class DVTWeatherAppTests: XCTestCase {
       XCTAssertEqual(lon, -122.0322)
     } else {
       XCTFail("Got nil instead of coordinates")
+    }
+  }
+
+  // MARK: Weather Forecast Tests
+
+  @MainActor func testGetDayOfWeek() {
+    // GIVE "dt_txt": "2022-08-30 18:00:00"
+    let dateStringData = [
+      "2024-06-13 00:00:00",
+      "2024-06-14 00:00:00",
+      "2024-06-15 00:00:00",
+      "2024-06-16 00:00:00",
+      "2024-06-17 00:00:00"
+    ]
+    let expectedDaysData = ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"]
+
+    // WHEN
+    for (dateString, expectedDays) in zip(dateStringData, expectedDaysData) {
+      /// THEN
+      XCTAssertEqual(homeTabViewModel.getDayOfWeek(from: dateString), expectedDays)
     }
   }
 }
