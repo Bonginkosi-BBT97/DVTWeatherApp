@@ -12,6 +12,9 @@ enum WeatherDescription: String {
   case snow = "SNOWY"
   case clouds = "CLOUDY"
   case clear = "CLEAR"
+  case atmosphere = "ATOMSPHERE"
+  case drizzle = "DRIZZLE"
+  case thunderstorm = "THUNDERSTORM"
   case unknown = "SUNNY"
 
   init(description: String) {
@@ -26,6 +29,8 @@ enum WeatherDescription: String {
       self = .clouds
     case "CLEAR":
       self = .clear
+    case "ATOMSPHERE":
+      self = .atmosphere
     default:
       self = .unknown
     }

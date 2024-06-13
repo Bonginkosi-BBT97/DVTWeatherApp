@@ -10,7 +10,7 @@
 		28046E82A024A1A0E72C6266 /* Pods_DVTWeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0FADB66E435B79937BA91E /* Pods_DVTWeatherAppTests.framework */; };
 		DEB7CE4F2C1B08B100851568 /* WeatherDescriptionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE4E2C1B08B100851568 /* WeatherDescriptionEnum.swift */; };
 		DEB7CE512C1B12F400851568 /* BackgroundImageNameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE502C1B12F300851568 /* BackgroundImageNameEnum.swift */; };
-		DEB7CE532C1B1E2800851568 /* BackgroundColorCodeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE522C1B1E2700851568 /* BackgroundColorCodeEnum.swift */; };
+		DEB7CE532C1B1E2800851568 /* BackgroundColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE522C1B1E2700851568 /* BackgroundColorEnum.swift */; };
 		DEB7CE562C1B219C00851568 /* HexColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE552C1B219C00851568 /* HexColor+Extension.swift */; };
 		DEBD26862C1A258C003C85C7 /* HomeTabView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBD26852C1A258C003C85C7 /* HomeTabView+Extension.swift */; };
 		DEC36ECE2C1A30E10055A435 /* CustomDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC36ECD2C1A30E10055A435 /* CustomDividerView.swift */; };
@@ -66,7 +66,7 @@
 		C7B2237B187FA6B05097C85E /* Pods-DVTWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVTWeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-DVTWeatherApp/Pods-DVTWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DEB7CE4E2C1B08B100851568 /* WeatherDescriptionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDescriptionEnum.swift; sourceTree = "<group>"; };
 		DEB7CE502C1B12F300851568 /* BackgroundImageNameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageNameEnum.swift; sourceTree = "<group>"; };
-		DEB7CE522C1B1E2700851568 /* BackgroundColorCodeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorCodeEnum.swift; sourceTree = "<group>"; };
+		DEB7CE522C1B1E2700851568 /* BackgroundColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorEnum.swift; sourceTree = "<group>"; };
 		DEB7CE552C1B219C00851568 /* HexColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HexColor+Extension.swift"; sourceTree = "<group>"; };
 		DEBD26852C1A258C003C85C7 /* HomeTabView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeTabView+Extension.swift"; sourceTree = "<group>"; };
 		DEC36ECD2C1A30E10055A435 /* CustomDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDividerView.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB7CE4E2C1B08B100851568 /* WeatherDescriptionEnum.swift */,
-				DEB7CE522C1B1E2700851568 /* BackgroundColorCodeEnum.swift */,
+				DEB7CE522C1B1E2700851568 /* BackgroundColorEnum.swift */,
 				DEB7CE502C1B12F300851568 /* BackgroundImageNameEnum.swift */,
 			);
 			path = Model;
@@ -506,7 +506,7 @@
 				DEE7605D2C186DC3005DE1D8 /* DVTWeatherApp.swift in Sources */,
 				DEE760972C18A981005DE1D8 /* CurrentWeatherModel.swift in Sources */,
 				DEC36ED02C1A34CE0055A435 /* HomeTabViewModel.swift in Sources */,
-				DEB7CE532C1B1E2800851568 /* BackgroundColorCodeEnum.swift in Sources */,
+				DEB7CE532C1B1E2800851568 /* BackgroundColorEnum.swift in Sources */,
 				DEB7CE562C1B219C00851568 /* HexColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

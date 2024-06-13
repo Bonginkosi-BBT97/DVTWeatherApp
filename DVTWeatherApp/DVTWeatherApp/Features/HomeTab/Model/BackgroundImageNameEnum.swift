@@ -10,14 +10,13 @@ import Foundation
 enum BackgroundImageName: String {
   case cloudy
   case rainy
-  case snowy
   case sunny
 
   init(description: WeatherDescription) {
     switch description {
-    case .clouds, .clear:
+    case .clouds, .clear, .atmosphere:
       self = .cloudy
-    case .rain, .snow:
+    case .rain, .snow, .drizzle, .thunderstorm:
       self = .rainy
     case .unknown:
       self = .sunny

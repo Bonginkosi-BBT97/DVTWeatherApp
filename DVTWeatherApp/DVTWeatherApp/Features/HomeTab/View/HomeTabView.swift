@@ -39,43 +39,21 @@ struct HomeTabView: View {
           if let currentWeather = weather {
             currentTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.temp)
 
-            let weatherDescription = WeatherDescription(
-              description: currentWeather.weather.first?
-                .main ?? ""
-            )
+            let weatherDescription = WeatherDescription(description: currentWeather.weather.first?.main ?? "")
 
             let backgroundImage = BackgroundImageName(description: weatherDescription)
             backgroundImageName = backgroundImage.rawValue
-              
+
             let backgroundColor = BackgroundColorCode(imageName: backgroundImage)
-              self.backgroundColor = backgroundColor.colorCode
-              
+            self.backgroundColor = backgroundColor.color
+
             currentWeatherDescription = weatherDescription.rawValue
 
-            currentMinTemperature = homeTabViewModel
-              .roundTemperatureString(from: currentWeather.main.tempMin)
-            currentMaxTemperature = homeTabViewModel
-              .roundTemperatureString(from: currentWeather.main.tempMax)
-
-            print("Weather description: \(currentWeather.weather.first?.main ?? "")")
-            print("Background image name: \(backgroundImageName)")
+            currentMinTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.tempMin)
+            currentMaxTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.tempMax)
           }
         }
         .store(in: &cancellables)
     }
   }
 }
-
-// #Preview {
-//  HomeTabView(
-//    locationManager: EnvironmentObject<LocationManager>,
-//    homeTabViewModel: HomeTabViewModel(),
-//    currentTemperature:  "25",
-//    currentMinTemperature: "19",
-//    currentMaxTemperature:"30",
-//    currentWeatherDescription:"SUNNY" ,
-//    backgroundImageName:"sunny"
-//    , backgroundColor:  Color.green
-//  )
-//
-// }
