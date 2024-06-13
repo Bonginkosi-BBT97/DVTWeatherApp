@@ -31,6 +31,10 @@ enum WeatherDescription: String {
       self = .clear
     case "ATOMSPHERE":
       self = .atmosphere
+    case "DRIZZLE":
+      self = .drizzle
+    case "THUNDERSTORM":
+      self = .thunderstorm
     default:
       self = .unknown
     }
