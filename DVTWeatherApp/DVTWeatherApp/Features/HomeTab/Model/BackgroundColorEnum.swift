@@ -12,7 +12,6 @@ enum BackgroundColorCode {
   case sunny
   case cloudy
   case rainy
-  case snowy
 
   var color: Color {
     switch self {
@@ -20,7 +19,7 @@ enum BackgroundColorCode {
       return Color(hex: "#47AB2F")
     case .cloudy:
       return Color(hex: "#54717A")
-    case .rainy, .snowy:
+    case .rainy:
       return Color(hex: "#57575D")
     }
   }

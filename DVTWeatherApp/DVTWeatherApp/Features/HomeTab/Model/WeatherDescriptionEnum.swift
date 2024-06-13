@@ -12,10 +12,18 @@ enum WeatherDescription: String {
   case snow = "SNOWY"
   case clouds = "CLOUDY"
   case clear = "CLEAR"
-  case atmosphere = "ATOMSPHERE"
   case drizzle = "DRIZZLE"
   case thunderstorm = "THUNDERSTORM"
   case unknown = "SUNNY"
+  case mist = "MIST"
+  case smoke = "SMOKE"
+  case haze = "HAZE"
+  case dust = "DUST"
+  case fog = "FOG"
+  case sand = "SAND"
+  case ash = "ASH"
+  case squall = "SQUALL"
+  case tornado = "TORNADO"
 
   init(description: String) {
     let uppercasedDescription = description.uppercased()
@@ -29,12 +37,28 @@ enum WeatherDescription: String {
       self = .clouds
     case "CLEAR":
       self = .clear
-    case "ATOMSPHERE":
-      self = .atmosphere
     case "DRIZZLE":
       self = .drizzle
     case "THUNDERSTORM":
       self = .thunderstorm
+    case "MIST":
+      self = .mist
+    case "SMOKE":
+      self = .smoke
+    case "HAZE":
+      self = .haze
+    case "DUST":
+      self = .dust
+    case "FOG":
+      self = .fog
+    case "SAND":
+      self = .sand
+    case "ASH":
+      self = .ash
+    case "SQUALL":
+      self = .squall
+    case "TORNADO":
+      self = .tornado
     default:
       self = .unknown
     }

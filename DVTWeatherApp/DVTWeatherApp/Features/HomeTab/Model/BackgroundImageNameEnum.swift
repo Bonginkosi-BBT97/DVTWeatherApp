@@ -14,9 +14,10 @@ enum BackgroundImageName: String {
 
   init(description: WeatherDescription) {
     switch description {
-    case .clouds, .clear, .atmosphere:
+    case .clouds, .clear, .ash, .dust, .smoke, .sand, .tornado, .haze:
       self = .cloudy
-    case .rain, .snow, .drizzle, .thunderstorm:
+
+    case .rain, .snow, .drizzle, .thunderstorm, .fog, .mist, .squall:
       self = .rainy
     case .unknown:
       self = .sunny

@@ -38,7 +38,7 @@ class HomeTabViewModel: ObservableObject {
     }
   }
 
-  private func coordinates(from location: CLLocation?) throws -> (Double, Double) {
+  func coordinates(from location: CLLocation?) throws -> (Double, Double) {
     guard let location = location else {
       return (37.3230, -122.0322)
     }
@@ -54,7 +54,7 @@ class HomeTabViewModel: ObservableObject {
 
     let weatherDescription = WeatherDescription(description: weather.weather.first?.main ?? "SUNNY")
     currentWeatherDescription = weatherDescription.rawValue
-
+    print(currentWeatherDescription)
     let backgroundImage = BackgroundImageName(description: weatherDescription)
     backgroundImageName = backgroundImage.rawValue
 
