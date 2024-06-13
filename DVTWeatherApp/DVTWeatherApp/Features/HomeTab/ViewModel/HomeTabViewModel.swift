@@ -20,6 +20,8 @@ class HomeTabViewModel: ObservableObject {
   @Published var errorMessage: String?
 
   @Published var forecastDaysOfWeek: [String] = []
+  @Published var forecastTemperatures: [String] = []
+  @Published var forecastDescriptions: [String] = []
 
   private let weatherApiService = WeatherAPIService()
   private var currentWeather: CurrentWeatherResponse?
@@ -51,6 +53,9 @@ class HomeTabViewModel: ObservableObject {
         )
         self.weatherForecast = weatherData
         self.updateWeatherForecast(forecastResponse: weatherData)
+        print("Days of the week: \(forecastDaysOfWeek)")
+        print("Temperatures of the week: \(forecastTemperatures)")
+        print("Descriptions of the week: \(forecastDescriptions)")
       } catch {
         self.errorMessage = error.localizedDescription
       }
@@ -128,6 +133,9 @@ class HomeTabViewModel: ObservableObject {
         print(
           "Day: \(detail.day), Temperature: \(roundTemperatureString(from: Double(detail.temperature) ?? 0.0)), Description: \(detail.description)"
         )
+        forecastDaysOfWeek.append(detail.day)
+        forecastTemperatures.append(roundTemperatureString(from: Double(detail.temperature) ?? 0.0))
+        forecastDescriptions.append(detail.description)
         uniqueDays.insert(detail.day)
         printedDaysCount += 1
       }
