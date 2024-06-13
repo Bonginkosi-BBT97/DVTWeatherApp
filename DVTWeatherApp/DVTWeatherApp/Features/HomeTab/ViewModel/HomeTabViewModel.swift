@@ -92,4 +92,19 @@ class HomeTabViewModel: ObservableObject {
     formatter.dateFormat = "EEEE"
     return formatter.string(from: date)
   }
+
+  func updateWeatherForecast(forecastResponse: WeatherForecastResponse) {
+    let forecastDetails = forecastResponse.list.map { forecast -> (
+      day: String,
+      temperature: String,
+      description: String
+    ) in
+
+      let day = getDayOfWeek(from: forecast.dtTxt) ?? "Week Day"
+      let temperature = String(format: "%.2f", forecast.main.temp)
+      let description = forecast.weather.first?.description ?? "No description"
+
+      return (day, temperature, description)
+    }
+  }
 }
