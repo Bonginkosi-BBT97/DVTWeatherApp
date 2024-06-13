@@ -25,7 +25,7 @@ extension HomeTabView {
             .font(.largeTitle)
             .offset(x: 12, y: -5)
         }
-        Text(weatherTitle)
+        Text(currentWeatherDescription)
           .font(.largeTitle)
       }
       .foregroundColor(.white)

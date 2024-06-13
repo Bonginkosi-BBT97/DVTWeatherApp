@@ -15,8 +15,8 @@ struct HomeTabView: View {
   @State private var cancellables: Set<AnyCancellable> = []
 
   @State var currentTemperature: String
+  @State var currentWeatherDescription: String
 
-  let weatherTitle: String
   let backgroundImageName: String
   let backgroundColor: Color
 
@@ -36,6 +36,8 @@ struct HomeTabView: View {
         .sink { weather in
           if let currentWeather = weather {
             currentTemperature = homeTabViewModel.roundTemperatureString(from: currentWeather.main.temp)
+            currentWeatherDescription = currentWeather.weather.first?.description.uppercased() ?? ""
+              
             print("Temperature: \(currentWeather.main.temp)")
             print("Weather: \(currentWeather.weather.first?.description ?? "")")
             print("City Name: \(currentWeather.name)")
@@ -49,7 +51,7 @@ struct HomeTabView: View {
 #Preview {
   HomeTabView(
     homeTabViewModel: HomeTabViewModel(), currentTemperature: "25",
-    weatherTitle: "SUNNY",
+    currentWeatherDescription: "SUNNY",
     backgroundImageName: "sunny",
     backgroundColor: Color.green
   )

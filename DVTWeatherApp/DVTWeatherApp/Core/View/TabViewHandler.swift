@@ -12,7 +12,7 @@ struct TabViewHandler: View {
     TabView {
       HomeTabView(
         currentTemperature: "25",
-        weatherTitle: "SUNNY",
+        currentWeatherDescription: "SUNNY",
         backgroundImageName: "sunny",
         backgroundColor: Color.green
       )
