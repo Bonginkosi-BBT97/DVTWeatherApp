@@ -48,7 +48,7 @@ class HomeTabViewModel: ObservableObject {
           lon: lon
         )
         self.weatherForecast = weatherData
-
+        self.updateWeatherForecast(forecastResponse: weatherData)
       } catch {
         self.errorMessage = error.localizedDescription
       }
