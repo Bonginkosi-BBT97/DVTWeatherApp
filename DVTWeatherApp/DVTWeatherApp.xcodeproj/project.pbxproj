@@ -40,6 +40,7 @@
 		DEE7609E2C18AF89005DE1D8 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7609D2C18AF89005DE1D8 /* MockURLSession.swift */; };
 		DEFAB6052C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB6042C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift */; };
 		DEFAB6072C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB6062C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift */; };
+		DEFAB60B2C1CC93A00886DBE /* LocalityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB60A2C1CC93A00886DBE /* LocalityModel.swift */; };
 		E4FCDEF13E83A4348A624B9D /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		DEE7609D2C18AF89005DE1D8 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		DEFAB6042C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesSearchViewController+Extension.swift"; sourceTree = "<group>"; };
 		DEFAB6062C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesTableViewController+Extension.swift"; sourceTree = "<group>"; };
+		DEFAB60A2C1CC93A00886DBE /* LocalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalityModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 		DEB7CE592C1BCF8500851568 /* FavouritesTab */ = {
 			isa = PBXGroup;
 			children = (
+				DEFAB6092C1CC5EF00886DBE /* Model */,
 				DEB7CE5A2C1BCFC100851568 /* View */,
 				DEFAB6082C1C9C9B00886DBE /* ViewModel */,
 			);
@@ -211,8 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				DEB7CE752C1BFA8100851568 /* FavouritesSearchViewController.swift */,
-				DEB7CE772C1BFAFC00851568 /* FavouritesSearchView.swift */,
 				DEFAB6042C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift */,
+				DEB7CE772C1BFAFC00851568 /* FavouritesSearchView.swift */,
 			);
 			path = FavouritesSearchView;
 			sourceTree = "<group>";
@@ -373,6 +376,14 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DEFAB6092C1CC5EF00886DBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEFAB60A2C1CC93A00886DBE /* LocalityModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -585,6 +596,7 @@
 				DED01CAA2C19BBE6003CE221 /* LocationManager.swift in Sources */,
 				DEB7CE4F2C1B08B100851568 /* WeatherDescriptionEnum.swift in Sources */,
 				DEE7605D2C186DC3005DE1D8 /* DVTWeatherApp.swift in Sources */,
+				DEFAB60B2C1CC93A00886DBE /* LocalityModel.swift in Sources */,
 				DEE760972C18A981005DE1D8 /* CurrentWeatherModel.swift in Sources */,
 				DEB7CE582C1BAE3800851568 /* ForecastIconNameEnum.swift in Sources */,
 				DEB7CE762C1BFA8100851568 /* FavouritesSearchViewController.swift in Sources */,
