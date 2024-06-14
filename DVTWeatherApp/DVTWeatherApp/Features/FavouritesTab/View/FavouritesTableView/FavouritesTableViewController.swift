@@ -42,7 +42,7 @@ class FavouritesTableViewController: UITableViewController {
 
   @objc func addButtonTapped() {
     let searchViewController = FavouritesSearchViewController()
-    searchViewController.modalPresentationStyle = .overCurrentContext
+    searchViewController.modalPresentationStyle = .popover
     searchViewController.modalTransitionStyle = .coverVertical
     present(searchViewController, animated: true, completion: nil)
   }
