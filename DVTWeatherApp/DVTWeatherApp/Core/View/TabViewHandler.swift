@@ -25,6 +25,7 @@ struct TabViewHandler: View {
             Label("Favourites", systemImage: "heart.fill")
           }
       }
+      .tabBarStyle()
     }
   }
 }
