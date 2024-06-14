@@ -12,7 +12,15 @@ class FavouritesTableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+
+    navigationItem.rightBarButtonItem = UIBarButtonItem(
+      title: "Add",
+      style: .plain,
+      target: self,
+      action: #selector(addButtonTapped)
+    )
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,5 +38,12 @@ class FavouritesTableViewController: UITableViewController {
 
     let detailViewController = FavouritesDetailedViewController()
     navigationController?.pushViewController(detailViewController, animated: true)
+  }
+
+  @objc func addButtonTapped() {
+    let searchViewController = FavouritesSearchViewController()
+    searchViewController.modalPresentationStyle = .overCurrentContext
+    searchViewController.modalTransitionStyle = .coverVertical
+    present(searchViewController, animated: true, completion: nil)
   }
 }

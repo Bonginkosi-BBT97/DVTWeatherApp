@@ -17,6 +17,8 @@
 		DEB7CE6D2C1BF03100851568 /* FavouritesDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE6C2C1BF03100851568 /* FavouritesDetailedViewController.swift */; };
 		DEB7CE6F2C1BF07D00851568 /* FavouritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE6E2C1BF07D00851568 /* FavouritesTableViewController.swift */; };
 		DEB7CE712C1BF6EA00851568 /* TabViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE702C1BF6EA00851568 /* TabViewModifier.swift */; };
+		DEB7CE762C1BFA8100851568 /* FavouritesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE752C1BFA8100851568 /* FavouritesSearchViewController.swift */; };
+		DEB7CE782C1BFAFC00851568 /* FavouritesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE772C1BFAFC00851568 /* FavouritesSearchView.swift */; };
 		DEBD26862C1A258C003C85C7 /* HomeTabView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBD26852C1A258C003C85C7 /* HomeTabView+Extension.swift */; };
 		DEC36ECE2C1A30E10055A435 /* CustomDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC36ECD2C1A30E10055A435 /* CustomDividerView.swift */; };
 		DEC36ED02C1A34CE0055A435 /* HomeTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC36ECF2C1A34CE0055A435 /* HomeTabViewModel.swift */; };
@@ -78,6 +80,8 @@
 		DEB7CE6C2C1BF03100851568 /* FavouritesDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDetailedViewController.swift; sourceTree = "<group>"; };
 		DEB7CE6E2C1BF07D00851568 /* FavouritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewController.swift; sourceTree = "<group>"; };
 		DEB7CE702C1BF6EA00851568 /* TabViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModifier.swift; sourceTree = "<group>"; };
+		DEB7CE752C1BFA8100851568 /* FavouritesSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesSearchViewController.swift; sourceTree = "<group>"; };
+		DEB7CE772C1BFAFC00851568 /* FavouritesSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesSearchView.swift; sourceTree = "<group>"; };
 		DEBD26852C1A258C003C85C7 /* HomeTabView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeTabView+Extension.swift"; sourceTree = "<group>"; };
 		DEC36ECD2C1A30E10055A435 /* CustomDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDividerView.swift; sourceTree = "<group>"; };
 		DEC36ECF2C1A34CE0055A435 /* HomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewModel.swift; sourceTree = "<group>"; };
@@ -173,11 +177,37 @@
 		DEB7CE5A2C1BCFC100851568 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DEB7CE5F2C1BD24800851568 /* FavouritesTableView.swift */,
-				DEB7CE6E2C1BF07D00851568 /* FavouritesTableViewController.swift */,
-				DEB7CE6C2C1BF03100851568 /* FavouritesDetailedViewController.swift */,
+				DEB7CE742C1BF9B100851568 /* FavouritesSearchView */,
+				DEB7CE732C1BF97800851568 /* FavouritesDetailedView */,
+				DEB7CE722C1BF93E00851568 /* FavouritesTableView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DEB7CE722C1BF93E00851568 /* FavouritesTableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB7CE6E2C1BF07D00851568 /* FavouritesTableViewController.swift */,
+				DEB7CE5F2C1BD24800851568 /* FavouritesTableView.swift */,
+			);
+			path = FavouritesTableView;
+			sourceTree = "<group>";
+		};
+		DEB7CE732C1BF97800851568 /* FavouritesDetailedView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB7CE6C2C1BF03100851568 /* FavouritesDetailedViewController.swift */,
+			);
+			path = FavouritesDetailedView;
+			sourceTree = "<group>";
+		};
+		DEB7CE742C1BF9B100851568 /* FavouritesSearchView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB7CE752C1BFA8100851568 /* FavouritesSearchViewController.swift */,
+				DEB7CE772C1BFAFC00851568 /* FavouritesSearchView.swift */,
+			);
+			path = FavouritesSearchView;
 			sourceTree = "<group>";
 		};
 		DED01CAC2C19EDF6003CE221 /* Features */ = {
@@ -532,6 +562,7 @@
 				DED01CBC2C19F5AE003CE221 /* HomeTabView.swift in Sources */,
 				DEC36ECE2C1A30E10055A435 /* CustomDividerView.swift in Sources */,
 				DEB7CE712C1BF6EA00851568 /* TabViewModifier.swift in Sources */,
+				DEB7CE782C1BFAFC00851568 /* FavouritesSearchView.swift in Sources */,
 				DEBD26862C1A258C003C85C7 /* HomeTabView+Extension.swift in Sources */,
 				DEE760992C18ADEB005DE1D8 /* WeatherAPIError.swift in Sources */,
 				DED01CC02C1A009F003CE221 /* WeatherForecastCardView.swift in Sources */,
@@ -541,6 +572,7 @@
 				DEE7605D2C186DC3005DE1D8 /* DVTWeatherApp.swift in Sources */,
 				DEE760972C18A981005DE1D8 /* CurrentWeatherModel.swift in Sources */,
 				DEB7CE582C1BAE3800851568 /* ForecastIconNameEnum.swift in Sources */,
+				DEB7CE762C1BFA8100851568 /* FavouritesSearchViewController.swift in Sources */,
 				DEC36ED02C1A34CE0055A435 /* HomeTabViewModel.swift in Sources */,
 				DEB7CE532C1B1E2800851568 /* BackgroundColorEnum.swift in Sources */,
 				DEB7CE562C1B219C00851568 /* HexColor+Extension.swift in Sources */,
