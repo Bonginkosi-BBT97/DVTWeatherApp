@@ -21,7 +21,7 @@ UISearchBarDelegate {
 
     searchBar = UISearchBar()
     searchBar.delegate = self
-    searchBar.placeholder = "Search Favourites"
+    searchBar.placeholder = "South African City"
     view.addSubview(searchBar)
 
     tableView = UITableView()

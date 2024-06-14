@@ -38,6 +38,8 @@
 		DEE760992C18ADEB005DE1D8 /* WeatherAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE760982C18ADEA005DE1D8 /* WeatherAPIError.swift */; };
 		DEE7609C2C18AF54005DE1D8 /* WeatherAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7609B2C18AF54005DE1D8 /* WeatherAPIService.swift */; };
 		DEE7609E2C18AF89005DE1D8 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7609D2C18AF89005DE1D8 /* MockURLSession.swift */; };
+		DEFAB6052C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB6042C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift */; };
+		DEFAB6072C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB6062C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift */; };
 		E4FCDEF13E83A4348A624B9D /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,8 @@
 		DEE760982C18ADEA005DE1D8 /* WeatherAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIError.swift; sourceTree = "<group>"; };
 		DEE7609B2C18AF54005DE1D8 /* WeatherAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIService.swift; sourceTree = "<group>"; };
 		DEE7609D2C18AF89005DE1D8 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		DEFAB6042C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesSearchViewController+Extension.swift"; sourceTree = "<group>"; };
+		DEFAB6062C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesTableViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB7CE5A2C1BCFC100851568 /* View */,
+				DEFAB6082C1C9C9B00886DBE /* ViewModel */,
 			);
 			path = FavouritesTab;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB7CE6E2C1BF07D00851568 /* FavouritesTableViewController.swift */,
+				DEFAB6062C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift */,
 				DEB7CE5F2C1BD24800851568 /* FavouritesTableView.swift */,
 			);
 			path = FavouritesTableView;
@@ -206,6 +212,7 @@
 			children = (
 				DEB7CE752C1BFA8100851568 /* FavouritesSearchViewController.swift */,
 				DEB7CE772C1BFAFC00851568 /* FavouritesSearchView.swift */,
+				DEFAB6042C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift */,
 			);
 			path = FavouritesSearchView;
 			sourceTree = "<group>";
@@ -359,6 +366,13 @@
 				DEE7609B2C18AF54005DE1D8 /* WeatherAPIService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		DEFAB6082C1C9C9B00886DBE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,6 +575,7 @@
 				DEE7609C2C18AF54005DE1D8 /* WeatherAPIService.swift in Sources */,
 				DED01CBC2C19F5AE003CE221 /* HomeTabView.swift in Sources */,
 				DEC36ECE2C1A30E10055A435 /* CustomDividerView.swift in Sources */,
+				DEFAB6052C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift in Sources */,
 				DEB7CE712C1BF6EA00851568 /* TabViewModifier.swift in Sources */,
 				DEB7CE782C1BFAFC00851568 /* FavouritesSearchView.swift in Sources */,
 				DEBD26862C1A258C003C85C7 /* HomeTabView+Extension.swift in Sources */,
@@ -575,6 +590,7 @@
 				DEB7CE762C1BFA8100851568 /* FavouritesSearchViewController.swift in Sources */,
 				DEC36ED02C1A34CE0055A435 /* HomeTabViewModel.swift in Sources */,
 				DEB7CE532C1B1E2800851568 /* BackgroundColorEnum.swift in Sources */,
+				DEFAB6072C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift in Sources */,
 				DEB7CE562C1B219C00851568 /* HexColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
