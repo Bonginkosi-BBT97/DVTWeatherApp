@@ -30,20 +30,7 @@ UISearchBarDelegate {
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     view.addSubview(tableView)
 
-    searchBar.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    ])
-
-    tableView.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    ])
+    loadConstraints()
 
     filteredCities = cities
   }
@@ -61,8 +48,7 @@ UISearchBarDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
 
-    let detailViewController = FavouritesDetailedViewController()
-    navigationController?.pushViewController(detailViewController, animated: true)
+    print(filteredCities[indexPath.row].name)
   }
 
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -74,7 +60,20 @@ UISearchBarDelegate {
     tableView.reloadData()
   }
 
-  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    searchBar.resignFirstResponder()
+  func loadConstraints() {
+    searchBar.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+    ])
+
+    tableView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+    ])
   }
 }
