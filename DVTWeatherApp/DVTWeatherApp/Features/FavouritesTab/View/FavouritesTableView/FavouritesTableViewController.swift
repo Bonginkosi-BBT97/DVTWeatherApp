@@ -8,12 +8,13 @@
 import UIKit
 
 class FavouritesTableViewController: UITableViewController {
-  var items = ["Item 1", "Item 2", "Item 3"]
+  var items = ["Johannesburg 12° CLEAR", "Durban 15° CLOUDY", "Pretoria 20° SUNNY "]
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    let nib = UINib(nibName: "FavouriteTableViewCell", bundle: nil)
+    tableView.register(nib, forCellReuseIdentifier: "Cell")
     tableView.backgroundColor = .white
 
     navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -29,10 +30,22 @@ class FavouritesTableViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-    cell.textLabel?.text = items[indexPath.row]
-    cell.textLabel?.textColor = .black
+    guard let cell = tableView
+      .dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? FavouriteTableViewCell
+    else {
+      return UITableViewCell()
+    }
+
+    let item = items[indexPath.row].components(separatedBy: " ")
+    let cityName = item[0]
+    let temperature = item[1]
+    let weatherDescription = item[2]
+
+    cell.cityName.text = cityName
+    cell.weatherTemperature.text = temperature
+    cell.weatherDescription.text = weatherDescription
     cell.backgroundColor = .white
+
     return cell
   }
 

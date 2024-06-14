@@ -25,7 +25,6 @@ UISearchBarDelegate {
 
     print(filteredCities[indexPath.row].name)
     dismiss(animated: true, completion: nil)
-      
   }
 
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
