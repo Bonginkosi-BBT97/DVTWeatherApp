@@ -13,7 +13,6 @@
 		DEB7CE532C1B1E2800851568 /* BackgroundColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE522C1B1E2700851568 /* BackgroundColorEnum.swift */; };
 		DEB7CE562C1B219C00851568 /* HexColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE552C1B219C00851568 /* HexColor+Extension.swift */; };
 		DEB7CE582C1BAE3800851568 /* ForecastIconNameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE572C1BAE3800851568 /* ForecastIconNameEnum.swift */; };
-		DEB7CE5E2C1BD00E00851568 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE5B2C1BD00E00851568 /* FavouritesViewController.swift */; };
 		DEB7CE602C1BD24900851568 /* FavouritesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE5F2C1BD24800851568 /* FavouritesTableView.swift */; };
 		DEB7CE6D2C1BF03100851568 /* FavouritesDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE6C2C1BF03100851568 /* FavouritesDetailedViewController.swift */; };
 		DEB7CE6F2C1BF07D00851568 /* FavouritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE6E2C1BF07D00851568 /* FavouritesTableViewController.swift */; };
@@ -74,7 +73,6 @@
 		DEB7CE522C1B1E2700851568 /* BackgroundColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorEnum.swift; sourceTree = "<group>"; };
 		DEB7CE552C1B219C00851568 /* HexColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HexColor+Extension.swift"; sourceTree = "<group>"; };
 		DEB7CE572C1BAE3800851568 /* ForecastIconNameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastIconNameEnum.swift; sourceTree = "<group>"; };
-		DEB7CE5B2C1BD00E00851568 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		DEB7CE5F2C1BD24800851568 /* FavouritesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouritesTableView.swift; path = /Users/bonginkositshabalala/Documents/GitHub/DVTWeatherApp/DVTWeatherApp/DVTWeatherApp/Features/FavouritesTab/View/FavouritesTableView.swift; sourceTree = "<absolute>"; };
 		DEB7CE6C2C1BF03100851568 /* FavouritesDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDetailedViewController.swift; sourceTree = "<group>"; };
 		DEB7CE6E2C1BF07D00851568 /* FavouritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewController.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				DEB7CE5F2C1BD24800851568 /* FavouritesTableView.swift */,
-				DEB7CE5B2C1BD00E00851568 /* FavouritesViewController.swift */,
 				DEB7CE6E2C1BF07D00851568 /* FavouritesTableViewController.swift */,
 				DEB7CE6C2C1BF03100851568 /* FavouritesDetailedViewController.swift */,
 			);
@@ -525,7 +522,6 @@
 				DEB7CE602C1BD24900851568 /* FavouritesTableView.swift in Sources */,
 				DEE7609E2C18AF89005DE1D8 /* MockURLSession.swift in Sources */,
 				DEB7CE6F2C1BF07D00851568 /* FavouritesTableViewController.swift in Sources */,
-				DEB7CE5E2C1BD00E00851568 /* FavouritesViewController.swift in Sources */,
 				DEB7CE512C1B12F400851568 /* BackgroundImageNameEnum.swift in Sources */,
 				DED01CBE2C19F91D003CE221 /* CurrentWeatherCardView.swift in Sources */,
 				DED01CA82C199033003CE221 /* WeatherForecastModel.swift in Sources */,
