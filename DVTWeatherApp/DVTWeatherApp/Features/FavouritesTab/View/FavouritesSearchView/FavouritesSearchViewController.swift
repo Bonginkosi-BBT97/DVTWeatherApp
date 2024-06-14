@@ -11,8 +11,8 @@ class FavouritesSearchViewController: UIViewController, UITableViewDelegate, UIT
 UISearchBarDelegate {
   var tableView: UITableView!
   var searchBar: UISearchBar!
-  var items: [String] = ["Item 1", "Item 2", "Item 3", "Item 4"]
-  var filteredItems: [String] = []
+  let cities = LocalCities().localCities
+  var filteredCities: [LocalCityName] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,7 +21,7 @@ UISearchBarDelegate {
 
     searchBar = UISearchBar()
     searchBar.delegate = self
-    searchBar.placeholder = "South African City"
+    searchBar.placeholder = "South Africa City"
     view.addSubview(searchBar)
 
     tableView = UITableView()
@@ -45,16 +45,16 @@ UISearchBarDelegate {
       tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     ])
 
-    filteredItems = items
+    filteredCities = cities
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return filteredItems.count
+    return filteredCities.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-    cell.textLabel?.text = filteredItems[indexPath.row]
+    cell.textLabel?.text = filteredCities[indexPath.row].name
     return cell
   }
 
@@ -67,9 +67,9 @@ UISearchBarDelegate {
 
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     if searchText.isEmpty {
-      filteredItems = items
+      filteredCities = cities
     } else {
-      filteredItems = items.filter { $0.localizedCaseInsensitiveContains(searchText) }
+      filteredCities = cities.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
     }
     tableView.reloadData()
   }
