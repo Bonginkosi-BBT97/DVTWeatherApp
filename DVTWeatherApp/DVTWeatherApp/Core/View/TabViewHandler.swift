@@ -10,18 +10,21 @@ import SwiftUI
 struct TabViewHandler: View {
   @StateObject private var locationManager = LocationManager()
   var body: some View {
-    TabView {
-      HomeTabView(
-        homeTabViewModel: HomeTabViewModel()
-      )
-      .tabItem {
-        Label("Home", systemImage: "house.fill")
-      }
-      .environmentObject(locationManager)
-      FavouritesTableView()
+    NavigationView {
+      TabView {
+        HomeTabView(
+          homeTabViewModel: HomeTabViewModel()
+        )
         .tabItem {
-          Label("Favourites", systemImage: "heart.fill")
+          Label("Home", systemImage: "house.fill")
         }
+        .environmentObject(locationManager)
+
+        FavouritesTableView()
+          .tabItem {
+            Label("Favourites", systemImage: "heart.fill")
+          }
+      }
     }
   }
 }
