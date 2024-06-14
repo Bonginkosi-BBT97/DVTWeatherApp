@@ -18,6 +18,10 @@ struct TabViewHandler: View {
         Label("Home", systemImage: "house.fill")
       }
       .environmentObject(locationManager)
+      FavouritesTableView()
+        .tabItem {
+          Label("Favourites", systemImage: "heart.fill")
+        }
     }
   }
 }
