@@ -1,19 +1,18 @@
 //
-//  FavouritesTableView+Representable.swift
+//  FavouritesTableView.swift
 //
 //
 //  Created by Bonginkosi Tshabalala on 2024/06/14.
 //
 
 import SwiftUI
-import UIKit
 
 struct FavouritesTableView: UIViewControllerRepresentable {
-  func makeUIViewController(context: Context) -> FavouritesTableViewController {
-    return FavouritesTableViewController()
+  func makeUIViewController(context: Context) -> UINavigationController {
+    let favouritesTableViewController = FavouritesTableViewController()
+    let navigationController = UINavigationController(rootViewController: favouritesTableViewController)
+    return navigationController
   }
 
-  func updateUIViewController(_ uiViewController: FavouritesTableViewController, context: Context) {
-
-  }
+  func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {}
 }
