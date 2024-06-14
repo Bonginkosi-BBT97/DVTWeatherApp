@@ -23,8 +23,17 @@ struct HomeTabView: View {
     }
     .background(homeTabViewModel.backgroundColor)
     .onAppear {
-      homeTabViewModel.fetchCurrentWeather(for: locationManager.location)
-      homeTabViewModel.fetchWeatherForecast(for: locationManager.location)
+      updateWeatherIfLocationAvailable()
+    }
+    .onChange(of: locationManager.location) { _ in
+      updateWeatherIfLocationAvailable()
+    }
+  }
+
+  private func updateWeatherIfLocationAvailable() {
+    if let location = locationManager.location {
+      homeTabViewModel.fetchCurrentWeather(for: location)
+      homeTabViewModel.fetchWeatherForecast(for: location)
     }
   }
 }
