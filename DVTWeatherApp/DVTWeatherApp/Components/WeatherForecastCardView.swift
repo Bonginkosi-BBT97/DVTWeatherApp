@@ -19,7 +19,8 @@ struct WeatherForecastCardView: View {
         .bold()
       Spacer()
       Image(weatherIconName)
-        .scaledToFill()
+        .resizable()
+        .scaledToFit()
       Spacer()
       ZStack(alignment: .topTrailing) {
         Text(temperatureValue)
