@@ -38,6 +38,7 @@ class HomeTabViewModel: ObservableObject {
         )
         self.currentWeather = weatherData
         updateCurrentWeatherProperties()
+
       } catch {
         self.errorMessage = error.localizedDescription
       }

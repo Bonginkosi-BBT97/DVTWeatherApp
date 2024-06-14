@@ -14,6 +14,7 @@ class FavouritesTableViewController: UITableViewController {
     super.viewDidLoad()
 
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    tableView.backgroundColor = .white
 
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       title: "Add",
@@ -30,6 +31,8 @@ class FavouritesTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     cell.textLabel?.text = items[indexPath.row]
+    cell.textLabel?.textColor = .black
+    cell.backgroundColor = .white
     return cell
   }
 
