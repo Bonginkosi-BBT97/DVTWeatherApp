@@ -21,6 +21,12 @@ class FavouritesTableViewController: UITableViewController, FavouritesSearchDele
       target: self,
       action: #selector(addButtonTapped)
     )
+    navigationItem.leftBarButtonItem = UIBarButtonItem(
+      title: "Delete All",
+      style: .plain,
+      target: self,
+      action: #selector(deleteButtonTapped)
+    )
 
     Task {
       await favouritesViewModel.fetchCities()

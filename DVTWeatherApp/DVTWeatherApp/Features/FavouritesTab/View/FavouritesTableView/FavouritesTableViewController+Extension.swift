@@ -47,6 +47,11 @@ extension FavouritesTableViewController {
     tableView.reloadData()
   }
 
+  @objc func deleteButtonTapped() {
+    favouritesViewModel.clearAllCities()
+    tableView.reloadData()
+  }
+
   func didSaveCity() {
     favouritesViewModel.fetchCities()
 
