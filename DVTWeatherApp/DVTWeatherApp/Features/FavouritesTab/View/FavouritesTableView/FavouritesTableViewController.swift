@@ -15,18 +15,7 @@ class FavouritesTableViewController: UITableViewController, FavouritesSearchDele
 
     registerXib()
     tableView.rowHeight = 80
-    navigationItem.rightBarButtonItem = UIBarButtonItem(
-      title: "Add",
-      style: .plain,
-      target: self,
-      action: #selector(addButtonTapped)
-    )
-    navigationItem.leftBarButtonItem = UIBarButtonItem(
-      title: "Delete All",
-      style: .plain,
-      target: self,
-      action: #selector(deleteButtonTapped)
-    )
+    tabBarItems()
 
     Task {
       await favouritesViewModel.fetchCities()
@@ -45,5 +34,20 @@ class FavouritesTableViewController: UITableViewController, FavouritesSearchDele
     let nib = UINib(nibName: "FavouriteTableViewCell", bundle: nil)
     tableView.register(nib, forCellReuseIdentifier: "Cell")
     tableView.backgroundColor = .white
+  }
+
+  private func tabBarItems() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(
+      title: "Add",
+      style: .plain,
+      target: self,
+      action: #selector(addButtonTapped)
+    )
+    navigationItem.leftBarButtonItem = UIBarButtonItem(
+      title: "Delete All",
+      style: .plain,
+      target: self,
+      action: #selector(deleteButtonTapped)
+    )
   }
 }
