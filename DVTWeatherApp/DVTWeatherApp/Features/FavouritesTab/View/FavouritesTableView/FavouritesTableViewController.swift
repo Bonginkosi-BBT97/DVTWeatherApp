@@ -14,7 +14,7 @@ class FavouritesTableViewController: UITableViewController, FavouritesSearchDele
     super.viewDidLoad()
 
     registerXib()
-
+    tableView.rowHeight = 80
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       title: "Add",
       style: .plain,
@@ -29,7 +29,6 @@ class FavouritesTableViewController: UITableViewController, FavouritesSearchDele
           await favouritesViewModel.fetchWeatherData(for: cityName)
         }
       }
-      print(favouritesViewModel.weatherData)
       DispatchQueue.main.async {
         self.tableView.reloadData()
       }
