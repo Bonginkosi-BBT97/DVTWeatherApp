@@ -42,5 +42,15 @@ class FavouritesViewModel: ObservableObject {
     }
   }
 
-  func saveCity(name: String) {}
+  func saveCity(name: String) {
+    guard !cityExists(name: name) else { return }
+    let newCity = CityEntity(context: container.viewContext)
+    newCity.name = name
+    do {
+      try container.viewContext.save()
+      fetchCities()
+    } catch {
+      print("Error saving city \(error)")
+    }
+  }
 }
