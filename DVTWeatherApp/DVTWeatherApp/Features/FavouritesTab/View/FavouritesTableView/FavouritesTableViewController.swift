@@ -9,10 +9,12 @@ import UIKit
 
 class FavouritesTableViewController: UITableViewController {
   var items = ["Johannesburg 12° CLEAR", "Durban 15° CLOUDY", "Pretoria 20° SUNNY "]
+  let viewModel = FavouritesViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    print(viewModel.container.name)
     let nib = UINib(nibName: "FavouriteTableViewCell", bundle: nil)
     tableView.register(nib, forCellReuseIdentifier: "Cell")
     tableView.backgroundColor = .white
