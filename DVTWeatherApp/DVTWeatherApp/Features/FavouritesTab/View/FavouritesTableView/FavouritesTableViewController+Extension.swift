@@ -23,7 +23,7 @@ extension FavouritesTableViewController {
     let city = favouritesViewModel.cities[indexPath.row]
     if let cityName = city.name, let weather = favouritesViewModel.weatherData[cityName] {
       cell.cityName.text = weather.name
-      cell.weatherTemperature.text = "\(weather.main.temp)"
+      cell.weatherTemperature.text = "\(homeTabViewModel.roundTemperatureString(from: weather.main.temp))°"
       cell.weatherDescription.text = weather.weather.first?.description ?? ""
     }
 

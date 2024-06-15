@@ -10,7 +10,7 @@ import UIKit
 class FavouritesTableViewController: UITableViewController {
   var items = ["Johannesburg 12° CLEAR", "Durban 15° CLOUDY", "Pretoria 20° SUNNY "]
   var favouritesViewModel = FavouritesViewModel()
-
+  var homeTabViewModel = HomeTabViewModel()
   override func viewDidLoad() {
     super.viewDidLoad()
 
