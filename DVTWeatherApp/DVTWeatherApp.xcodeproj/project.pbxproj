@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		28046E82A024A1A0E72C6266 /* Pods_DVTWeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0FADB66E435B79937BA91E /* Pods_DVTWeatherAppTests.framework */; };
 		DE09B1822C1D951F008ADF26 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE09B1812C1D951F008ADF26 /* FavouritesViewModel.swift */; };
+		DE09B1852C1D98A4008ADF26 /* FavouritesContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE09B1832C1D98A4008ADF26 /* FavouritesContainer.xcdatamodeld */; };
 		DEB7CE4F2C1B08B100851568 /* WeatherDescriptionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE4E2C1B08B100851568 /* WeatherDescriptionEnum.swift */; };
 		DEB7CE512C1B12F400851568 /* BackgroundImageNameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE502C1B12F300851568 /* BackgroundImageNameEnum.swift */; };
 		DEB7CE532C1B1E2800851568 /* BackgroundColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7CE522C1B1E2700851568 /* BackgroundColorEnum.swift */; };
@@ -41,7 +42,7 @@
 		DEE7609E2C18AF89005DE1D8 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7609D2C18AF89005DE1D8 /* MockURLSession.swift */; };
 		DEFAB6052C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB6042C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift */; };
 		DEFAB6072C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB6062C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift */; };
-		DEFAB60B2C1CC93A00886DBE /* LocalityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB60A2C1CC93A00886DBE /* LocalityModel.swift */; };
+		DEFAB60B2C1CC93A00886DBE /* LocalCitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB60A2C1CC93A00886DBE /* LocalCitiesModel.swift */; };
 		DEFAB60F2C1CE09A00886DBE /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB60D2C1CE09A00886DBE /* FavouriteTableViewCell.swift */; };
 		DEFAB6102C1CE09A00886DBE /* FavouriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFAB60E2C1CE09A00886DBE /* FavouriteTableViewCell.xib */; };
 		E4FCDEF13E83A4348A624B9D /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -78,6 +79,7 @@
 		AD2A2712E56308183634311D /* Pods-DVTWeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVTWeatherAppTests.debug.xcconfig"; path = "Target Support Files/Pods-DVTWeatherAppTests/Pods-DVTWeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7B2237B187FA6B05097C85E /* Pods-DVTWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVTWeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-DVTWeatherApp/Pods-DVTWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DE09B1812C1D951F008ADF26 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		DE09B1842C1D98A4008ADF26 /* FavouritesContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavouritesContainer.xcdatamodel; sourceTree = "<group>"; };
 		DEB7CE4E2C1B08B100851568 /* WeatherDescriptionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDescriptionEnum.swift; sourceTree = "<group>"; };
 		DEB7CE502C1B12F300851568 /* BackgroundImageNameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageNameEnum.swift; sourceTree = "<group>"; };
 		DEB7CE522C1B1E2700851568 /* BackgroundColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorEnum.swift; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 		DEE7609D2C18AF89005DE1D8 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		DEFAB6042C1C9C0B00886DBE /* FavouritesSearchViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesSearchViewController+Extension.swift"; sourceTree = "<group>"; };
 		DEFAB6062C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesTableViewController+Extension.swift"; sourceTree = "<group>"; };
-		DEFAB60A2C1CC93A00886DBE /* LocalityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalityModel.swift; sourceTree = "<group>"; };
+		DEFAB60A2C1CC93A00886DBE /* LocalCitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCitiesModel.swift; sourceTree = "<group>"; };
 		DEFAB60D2C1CE09A00886DBE /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
 		DEFAB60E2C1CE09A00886DBE /* FavouriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -389,7 +391,8 @@
 		DEFAB6092C1CC5EF00886DBE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DEFAB60A2C1CC93A00886DBE /* LocalityModel.swift */,
+				DEFAB60A2C1CC93A00886DBE /* LocalCitiesModel.swift */,
+				DE09B1832C1D98A4008ADF26 /* FavouritesContainer.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				DEB7CE512C1B12F400851568 /* BackgroundImageNameEnum.swift in Sources */,
 				DED01CBE2C19F91D003CE221 /* CurrentWeatherCardView.swift in Sources */,
 				DED01CA82C199033003CE221 /* WeatherForecastModel.swift in Sources */,
+				DE09B1852C1D98A4008ADF26 /* FavouritesContainer.xcdatamodeld in Sources */,
 				DEFAB60F2C1CE09A00886DBE /* FavouriteTableViewCell.swift in Sources */,
 				DEE7609C2C18AF54005DE1D8 /* WeatherAPIService.swift in Sources */,
 				DED01CBC2C19F5AE003CE221 /* HomeTabView.swift in Sources */,
@@ -616,7 +620,7 @@
 				DEB7CE4F2C1B08B100851568 /* WeatherDescriptionEnum.swift in Sources */,
 				DE09B1822C1D951F008ADF26 /* FavouritesViewModel.swift in Sources */,
 				DEE7605D2C186DC3005DE1D8 /* DVTWeatherApp.swift in Sources */,
-				DEFAB60B2C1CC93A00886DBE /* LocalityModel.swift in Sources */,
+				DEFAB60B2C1CC93A00886DBE /* LocalCitiesModel.swift in Sources */,
 				DEE760972C18A981005DE1D8 /* CurrentWeatherModel.swift in Sources */,
 				DEB7CE582C1BAE3800851568 /* ForecastIconNameEnum.swift in Sources */,
 				DEB7CE762C1BFA8100851568 /* FavouritesSearchViewController.swift in Sources */,
@@ -910,6 +914,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DE09B1832C1D98A4008ADF26 /* FavouritesContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DE09B1842C1D98A4008ADF26 /* FavouritesContainer.xcdatamodel */,
+			);
+			currentVersion = DE09B1842C1D98A4008ADF26 /* FavouritesContainer.xcdatamodel */;
+			name = FavouritesContainer.xcdatamodeld;
+			path = /Users/bonginkositshabalala/Documents/GitHub/DVTWeatherApp/DVTWeatherApp/DVTWeatherApp/Features/FavouritesTab/Model/FavouritesContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DEE760512C186DC3005DE1D8 /* Project object */;
 }
