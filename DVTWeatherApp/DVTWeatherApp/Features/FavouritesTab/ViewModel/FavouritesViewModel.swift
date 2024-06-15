@@ -23,7 +23,7 @@ class FavouritesViewModel: ObservableObject {
     }
   }
 
-  func fetchCities() async {
+  func fetchCities() {
     let request: NSFetchRequest<CityEntity> = CityEntity.fetchRequest()
     do {
       cities = try container.viewContext.fetch(request)
@@ -44,15 +44,20 @@ class FavouritesViewModel: ObservableObject {
     }
   }
 
-  func saveCity(name: String) async {
-    guard !cityExists(name: name) else { return }
+  func saveCity(name: String, completion: @escaping (Bool) -> Void) {
+    guard !cityExists(name: name) else {
+      completion(false)
+      return
+    }
     let newCity = CityEntity(context: container.viewContext)
     newCity.name = name
     do {
       try container.viewContext.save()
-      await fetchCities()
+      fetchCities() // Call fetchCities synchronously
+      completion(true)
     } catch {
-      print("Error saving city \(error)")
+      print("Error saving city \(name): \(error)")
+      completion(false)
     }
   }
 

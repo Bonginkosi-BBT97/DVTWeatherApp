@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-extension FavouritesSearchViewController: UITableViewDelegate, UITableViewDataSource,
-UISearchBarDelegate {
+extension FavouritesSearchViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return filteredCities.count
   }
@@ -20,12 +19,23 @@ UISearchBarDelegate {
     return cell
   }
 
-  private func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) async {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
 
-    print(filteredCities[indexPath.row].name)
-    await favouritesViewModel.saveCity(name: filteredCities[indexPath.row].name)
-    dismiss(animated: true, completion: nil)
+    let cityName = filteredCities[indexPath.row].name
+    print("Selected city: \(cityName)")
+
+    favouritesViewModel.saveCity(name: cityName) { success in
+      if success {
+        print("City saved: \(cityName)")
+        DispatchQueue.main.async {
+          self.dismiss(animated: true, completion: nil)
+        }
+      } else {
+        print("Failed to save city: \(cityName)")
+        // Optionally show an alert or handle the failure
+      }
+    }
   }
 
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -34,6 +44,7 @@ UISearchBarDelegate {
     } else {
       filteredCities = cities.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
     }
+    print("Filtered cities: \(filteredCities)")
     tableView.reloadData()
   }
 
