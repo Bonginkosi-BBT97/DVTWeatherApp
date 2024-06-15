@@ -217,4 +217,15 @@ final class DVTWeatherAppTests: XCTestCase {
     XCTAssertEqual(favouritesTabViewModel.cities.count, 1)
     XCTAssertEqual(favouritesTabViewModel.cities.first?.name, "Test City")
   }
+
+  func testCityExists() throws {
+    // GIVEN
+    let city = CityEntity(context: container.viewContext)
+    city.name = "Existing City"
+    // WHEN
+    try container.viewContext.save()
+    // THEN
+    XCTAssertTrue(favouritesTabViewModel.cityExists(name: "Existing City"))
+    XCTAssertFalse(favouritesTabViewModel.cityExists(name: "Nonexistent City"))
+  }
 }
