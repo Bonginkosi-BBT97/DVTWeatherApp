@@ -9,8 +9,9 @@ import CoreData
 import Foundation
 
 class FavouritesViewModel: ObservableObject {
-  let container: NSPersistentContainer
+  var container: NSPersistentContainer
 
+  @Published var cities: [CityEntity] = []
   init() {
     self.container = NSPersistentContainer(name: "FavouritesContainer")
     container.loadPersistentStores { _, error in
@@ -19,4 +20,12 @@ class FavouritesViewModel: ObservableObject {
       }
     }
   }
+
+  func fetchCities() {}
+
+  func cityExists(name: String) -> Bool {
+    return true
+  }
+
+  func saveCity(name: String) {}
 }

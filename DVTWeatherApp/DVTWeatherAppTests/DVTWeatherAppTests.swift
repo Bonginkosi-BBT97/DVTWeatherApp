@@ -5,6 +5,7 @@
 //  Created by Bonginkosi Tshabalala on 2024/06/11.
 //
 
+import CoreData
 import CoreLocation
 @testable import DVTWeatherApp
 import XCTest
@@ -16,13 +17,30 @@ final class DVTWeatherAppTests: XCTestCase {
   let mockURLSession = MockURLSession()
 
   var homeTabViewModel: HomeTabViewModel!
+  var favouritesTabViewModel: FavouritesViewModel!
+
+  var container: NSPersistentContainer!
 
   @MainActor override func setUpWithError() throws {
     homeTabViewModel = HomeTabViewModel()
+
+    container = NSPersistentContainer(name: "FavouritesContainer")
+    let description = NSPersistentStoreDescription()
+    description.type = NSInMemoryStoreType
+    container.persistentStoreDescriptions = [description]
+    container.loadPersistentStores { _, error in
+      if let error = error {
+        fatalError("Unable to load persistent stores: \(error)")
+      }
+    }
+    favouritesTabViewModel = FavouritesViewModel()
+    favouritesTabViewModel.container = container
   }
 
   @MainActor override func tearDownWithError() throws {
     homeTabViewModel = nil
+    favouritesTabViewModel = nil
+    container = nil
   }
 
   func testGetCurrentWeather_Success() async throws {
@@ -182,5 +200,21 @@ final class DVTWeatherAppTests: XCTestCase {
       /// THEN
       XCTAssertEqual(homeTabViewModel.getDayOfWeek(from: dateString), expectedDays)
     }
+  }
+
+  // MARK: - - Test For The FavouritesViewModel --
+
+  func testFetchCities() throws {
+    // GIVEN
+    let city = CityEntity(context: container.viewContext)
+    city.name = "Test City"
+
+    // WHEN
+    try container.viewContext.save()
+    favouritesTabViewModel.fetchCities()
+
+    // THEN
+    XCTAssertEqual(favouritesTabViewModel.cities.count, 1)
+    XCTAssertEqual(favouritesTabViewModel.cities.first?.name, "Test City")
   }
 }
