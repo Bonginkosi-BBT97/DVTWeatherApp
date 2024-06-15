@@ -40,8 +40,10 @@ extension FavouritesTableViewController {
 
   @objc func addButtonTapped() {
     let searchViewController = FavouritesSearchViewController()
+    searchViewController.delegate = self
     searchViewController.modalPresentationStyle = .popover
     searchViewController.modalTransitionStyle = .coverVertical
     present(searchViewController, animated: true, completion: nil)
+    tableView.reloadData()
   }
 }

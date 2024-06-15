@@ -7,7 +7,12 @@
 
 import UIKit
 
-class FavouritesTableViewController: UITableViewController {
+class FavouritesTableViewController: UITableViewController, FavouritesSearchDelegate {
+  func didSaveCity() {
+    favouritesViewModel.fetchCities()
+    tableView.reloadData()
+  }
+
   var items = ["Johannesburg 12° CLEAR", "Durban 15° CLOUDY", "Pretoria 20° SUNNY "]
   var favouritesViewModel = FavouritesViewModel()
   var homeTabViewModel = HomeTabViewModel()

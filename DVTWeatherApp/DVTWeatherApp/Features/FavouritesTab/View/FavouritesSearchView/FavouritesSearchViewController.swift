@@ -6,13 +6,17 @@
 //
 
 import UIKit
-
+protocol FavouritesSearchDelegate: AnyObject {
+  func didSaveCity()
+}
 class FavouritesSearchViewController: UIViewController {
   var tableView: UITableView!
   var searchBar: UISearchBar!
   let cities = LocalCities().localCities
   var filteredCities: [LocalCityName] = []
   var favouritesViewModel = FavouritesViewModel()
+
+  weak var delegate: FavouritesSearchDelegate?
 
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -28,6 +28,9 @@ extension FavouritesSearchViewController: UITableViewDelegate, UITableViewDataSo
     favouritesViewModel.saveCity(name: cityName) { success in
       if success {
         print("City saved: \(cityName)")
+
+        self.delegate?.didSaveCity() // Added
+
         DispatchQueue.main.async {
           self.dismiss(animated: true, completion: nil)
         }
