@@ -31,7 +31,15 @@ class FavouritesViewModel: ObservableObject {
   }
 
   func cityExists(name: String) -> Bool {
-    return true
+    let request: NSFetchRequest<CityEntity> = CityEntity.fetchRequest()
+    request.predicate = NSPredicate(format: "name == %@", name)
+    do {
+      let count = try container.viewContext.count(for: request)
+      return count > 0
+    } catch {
+      print("Error checking if city exists: \(error)")
+      return false
+    }
   }
 
   func saveCity(name: String) {}
