@@ -21,7 +21,14 @@ class FavouritesViewModel: ObservableObject {
     }
   }
 
-  func fetchCities() {}
+  func fetchCities() {
+    let request: NSFetchRequest<CityEntity> = CityEntity.fetchRequest()
+    do {
+      cities = try container.viewContext.fetch(request)
+    } catch {
+      print("Error fetching cities: \(error)")
+    }
+  }
 
   func cityExists(name: String) -> Bool {
     return true
