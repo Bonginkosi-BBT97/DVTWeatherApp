@@ -24,6 +24,7 @@ UISearchBarDelegate {
     tableView.deselectRow(at: indexPath, animated: true)
 
     print(filteredCities[indexPath.row].name)
+    favouritesViewModel.saveCity(name: filteredCities[indexPath.row].name)
     dismiss(animated: true, completion: nil)
   }
 
