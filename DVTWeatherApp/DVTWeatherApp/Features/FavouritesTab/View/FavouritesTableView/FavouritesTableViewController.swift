@@ -22,6 +22,19 @@ class FavouritesTableViewController: UITableViewController {
       target: self,
       action: #selector(addButtonTapped)
     )
+
+    Task {
+      await favouritesViewModel.fetchCities()
+      for city in favouritesViewModel.cities {
+        if let cityName = city.name {
+          await favouritesViewModel.fetchWeatherData(for: cityName)
+        }
+      }
+      print(favouritesViewModel.weatherData)
+      DispatchQueue.main.async {
+        self.tableView.reloadData() // Reload table view after data is fetched
+      }
+    }
   }
 
   private func registerXib() {

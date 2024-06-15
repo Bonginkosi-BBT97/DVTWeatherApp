@@ -12,6 +12,7 @@ class FavouritesSearchViewController: UIViewController {
   var searchBar: UISearchBar!
   let cities = LocalCities().localCities
   var filteredCities: [LocalCityName] = []
+  var favouritesViewModel = FavouritesViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
