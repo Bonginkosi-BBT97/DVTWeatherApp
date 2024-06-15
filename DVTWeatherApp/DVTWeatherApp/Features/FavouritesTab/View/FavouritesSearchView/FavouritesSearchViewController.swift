@@ -6,9 +6,11 @@
 //
 
 import UIKit
+
 protocol FavouritesSearchDelegate: AnyObject {
   func didSaveCity()
 }
+
 class FavouritesSearchViewController: UIViewController {
   var tableView: UITableView!
   var searchBar: UISearchBar!
