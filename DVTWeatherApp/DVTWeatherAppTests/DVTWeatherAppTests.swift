@@ -53,7 +53,7 @@ final class DVTWeatherAppTests: XCTestCase {
         "main": {"temp": 14.75, "feels_like": 13.98, "temp_min": 11.83, "temp_max": 16.67, "pressure": 1013, "humidity": 65},
         "name": "London",
         "wind": {"speed": 5.66, "deg": 320}
-    }
+    }  
     """.data(using: .utf8)!
 
     let weatherAPIService = WeatherAPIService(session: mockURLSession)
@@ -231,14 +231,14 @@ final class DVTWeatherAppTests: XCTestCase {
 
   func testSaveCity() throws {
     // GIVEN
-    favouritesTabViewModel.saveCity(name: "New City")
+    favouritesTabViewModel.saveCity(name: "New City", completion: <#(Bool) -> Void#>)
 
     XCTAssertTrue(favouritesTabViewModel.cityExists(name: "New City"))
     XCTAssertEqual(favouritesTabViewModel.cities.count, 1)
     XCTAssertEqual(favouritesTabViewModel.cities.first?.name, "New City")
 
     // WHEN
-    favouritesTabViewModel.saveCity(name: "New City")
+    favouritesTabViewModel.saveCity(name: "New City", completion: <#(Bool) -> Void#>)
 
     // THEN
     XCTAssertEqual(favouritesTabViewModel.cities.count, 1) // Should still be 1 since duplicate was not saved

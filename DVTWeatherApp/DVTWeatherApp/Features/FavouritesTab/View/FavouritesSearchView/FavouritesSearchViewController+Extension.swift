@@ -23,20 +23,14 @@ extension FavouritesSearchViewController: UITableViewDelegate, UITableViewDataSo
     tableView.deselectRow(at: indexPath, animated: true)
 
     let cityName = filteredCities[indexPath.row].name
-    print("Selected city: \(cityName)")
 
     favouritesViewModel.saveCity(name: cityName) { success in
       if success {
-        print("City saved: \(cityName)")
 
-        self.delegate?.didSaveCity() // Added
-
+        self.delegate?.didSaveCity()
         DispatchQueue.main.async {
           self.dismiss(animated: true, completion: nil)
         }
-      } else {
-        print("Failed to save city: \(cityName)")
-        // Optionally show an alert or handle the failure
       }
     }
   }
@@ -47,7 +41,6 @@ extension FavouritesSearchViewController: UITableViewDelegate, UITableViewDataSo
     } else {
       filteredCities = cities.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
     }
-    print("Filtered cities: \(filteredCities)")
     tableView.reloadData()
   }
 

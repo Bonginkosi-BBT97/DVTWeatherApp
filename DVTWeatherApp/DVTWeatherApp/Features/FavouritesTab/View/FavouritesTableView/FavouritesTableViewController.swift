@@ -8,12 +8,6 @@
 import UIKit
 
 class FavouritesTableViewController: UITableViewController, FavouritesSearchDelegate {
-  func didSaveCity() {
-    favouritesViewModel.fetchCities()
-    tableView.reloadData()
-  }
-
-  var items = ["Johannesburg 12° CLEAR", "Durban 15° CLOUDY", "Pretoria 20° SUNNY "]
   var favouritesViewModel = FavouritesViewModel()
   var homeTabViewModel = HomeTabViewModel()
   override func viewDidLoad() {
@@ -37,7 +31,7 @@ class FavouritesTableViewController: UITableViewController, FavouritesSearchDele
       }
       print(favouritesViewModel.weatherData)
       DispatchQueue.main.async {
-        self.tableView.reloadData() // Reload table view after data is fetched
+        self.tableView.reloadData()
       }
     }
   }

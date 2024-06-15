@@ -27,7 +27,7 @@ class FavouritesSearchViewController: UIViewController {
 
     searchBar = UISearchBar()
     searchBar.delegate = self
-    searchBar.placeholder = "South Africa City"
+    searchBar.placeholder = "South African City"
     view.addSubview(searchBar)
 
     tableView = UITableView()

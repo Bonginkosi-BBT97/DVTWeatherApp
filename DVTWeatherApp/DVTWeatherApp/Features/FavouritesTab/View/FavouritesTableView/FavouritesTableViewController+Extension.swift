@@ -46,4 +46,17 @@ extension FavouritesTableViewController {
     present(searchViewController, animated: true, completion: nil)
     tableView.reloadData()
   }
+
+  func didSaveCity() {
+    favouritesViewModel.fetchCities()
+
+    if let latestCity = favouritesViewModel.cities.last?.name {
+      Task {
+        await favouritesViewModel.fetchWeatherData(for: latestCity)
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+        }
+      }
+    }
+  }
 }

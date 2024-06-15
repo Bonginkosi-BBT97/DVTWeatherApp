@@ -9,9 +9,7 @@ import UIKit
 
 class FavouriteTableViewCell: UITableViewCell {
   @IBOutlet var cityName: UILabel!
-
   @IBOutlet var weatherDescription: UILabel!
-
   @IBOutlet var weatherTemperature: UILabel!
 
   override func awakeFromNib() {
@@ -21,11 +19,5 @@ class FavouriteTableViewCell: UITableViewCell {
     cityName.textColor = .black
     weatherDescription.textColor = .black
     weatherTemperature.textColor = .black
-  }
-
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-
-    // Configure the view for the selected state
   }
 }
