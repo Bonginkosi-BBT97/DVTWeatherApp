@@ -48,8 +48,26 @@ extension FavouritesTableViewController {
   }
 
   @objc func deleteButtonTapped() {
-    favouritesViewModel.clearAllCities()
-    tableView.reloadData()
+
+    let alertController = UIAlertController(
+      title: "Confirm Deletion",
+      message: "Are you sure you want to delete all favourite cities?",
+      preferredStyle: .alert
+    )
+
+    let clickedYes = UIAlertAction(title: "Yes", style: .destructive) { [weak self] _ in
+      self?.favouritesViewModel.clearAllCities()
+      DispatchQueue.main.async {
+        self?.tableView.reloadData()
+      }
+    }
+
+    let clickedNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
+
+    alertController.addAction(clickedYes)
+    alertController.addAction(clickedNo)
+
+    present(alertController, animated: true, completion: nil)
   }
 
   func didSaveCity() {
