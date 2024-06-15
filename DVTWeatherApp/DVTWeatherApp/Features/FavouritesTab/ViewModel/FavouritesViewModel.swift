@@ -21,6 +21,7 @@ class FavouritesViewModel: ObservableObject {
         print("ERROR LOADING CORE DATA. \(error)")
       }
     }
+    //  clearAllCities()
   }
 
   func fetchCities() {
@@ -69,6 +70,18 @@ class FavouritesViewModel: ObservableObject {
       }
     } catch {
       print("Error fetching weather data for \(city): \(error)")
+    }
+  }
+
+  func clearAllCities() {
+    let request: NSFetchRequest<NSFetchRequestResult> = CityEntity.fetchRequest()
+    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+
+    do {
+      try container.viewContext.execute(batchDeleteRequest)
+      fetchCities() // Update the local array after deletion
+    } catch {
+      print("Error clearing cities \(error)")
     }
   }
 }
