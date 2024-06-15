@@ -10,7 +10,7 @@ import UIKit
 
 extension FavouritesTableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return items.count
+    return favouritesViewModel.cities.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,16 +20,14 @@ extension FavouritesTableViewController {
       return UITableViewCell()
     }
 
-    let item = items[indexPath.row].components(separatedBy: " ")
-    let cityName = item[0]
-    let temperature = item[1]
-    let weatherDescription = item[2]
+    let city = favouritesViewModel.cities[indexPath.row]
+    if let cityName = city.name, let weather = favouritesViewModel.weatherData[cityName] {
+      cell.cityName.text = weather.name
+      cell.weatherTemperature.text = "\(weather.main.temp)"
+      cell.weatherDescription.text = weather.weather.first?.description ?? ""
+    }
 
-    cell.cityName.text = cityName
-    cell.weatherTemperature.text = temperature
-    cell.weatherDescription.text = weatherDescription
     cell.backgroundColor = .white
-
     return cell
   }
 
