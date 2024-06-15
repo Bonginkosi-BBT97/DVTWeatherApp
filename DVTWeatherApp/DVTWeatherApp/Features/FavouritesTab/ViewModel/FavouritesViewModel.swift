@@ -9,9 +9,11 @@ import CoreData
 import Foundation
 
 class FavouritesViewModel: ObservableObject {
+  private let weatherApiService = WeatherAPIService()
   var container: NSPersistentContainer
 
   @Published var cities: [CityEntity] = []
+  @Published var weatherData: [String: CurrentWeatherResponse] = [:]
   init() {
     self.container = NSPersistentContainer(name: "FavouritesContainer")
     container.loadPersistentStores { _, error in
@@ -21,7 +23,7 @@ class FavouritesViewModel: ObservableObject {
     }
   }
 
-  func fetchCities() {
+  func fetchCities() async {
     let request: NSFetchRequest<CityEntity> = CityEntity.fetchRequest()
     do {
       cities = try container.viewContext.fetch(request)
@@ -42,15 +44,26 @@ class FavouritesViewModel: ObservableObject {
     }
   }
 
-  func saveCity(name: String) {
+  func saveCity(name: String) async {
     guard !cityExists(name: name) else { return }
     let newCity = CityEntity(context: container.viewContext)
     newCity.name = name
     do {
       try container.viewContext.save()
-      fetchCities()
+      await fetchCities()
     } catch {
       print("Error saving city \(error)")
+    }
+  }
+
+  func fetchWeatherData(for city: String) async {
+    do {
+      let weather = try await weatherApiService.getCurrentWeather(city: city)
+      DispatchQueue.main.async {
+        self.weatherData[city] = weather
+      }
+    } catch {
+      print("Error fetching weather data for \(city): \(error)")
     }
   }
 }

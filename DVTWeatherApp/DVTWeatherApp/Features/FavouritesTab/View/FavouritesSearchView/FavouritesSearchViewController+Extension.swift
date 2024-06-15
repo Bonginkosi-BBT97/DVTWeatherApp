@@ -20,11 +20,11 @@ UISearchBarDelegate {
     return cell
   }
 
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  private func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) async {
     tableView.deselectRow(at: indexPath, animated: true)
 
     print(filteredCities[indexPath.row].name)
-    favouritesViewModel.saveCity(name: filteredCities[indexPath.row].name)
+    await favouritesViewModel.saveCity(name: filteredCities[indexPath.row].name)
     dismiss(animated: true, completion: nil)
   }
 
