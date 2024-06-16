@@ -23,7 +23,7 @@ extension FavouritesTableViewController {
     let city = favouritesViewModel.cities[indexPath.row]
     if let cityName = city.name, let weather = favouritesViewModel.weatherData[cityName] {
       cell.cityName.text = weather.name
-      cell.weatherTemperature.text = "\(homeTabViewModel.roundTemperatureString(from: weather.main.temp))°"
+      cell.weatherTemperature.text = "\(WeatherUtilities.roundTemperatureString(from: weather.main.temp))°"
       cell.weatherDescription.text = weather.weather.first?.description ?? ""
     }
 
@@ -44,11 +44,11 @@ extension FavouritesTableViewController {
       if let cityName = city.name, let weather = favouritesViewModel.weatherData[cityName] {
         detailViewController.cityName = weather.name
         detailViewController
-          .currentTempValue = "\(homeTabViewModel.roundTemperatureString(from: weather.main.temp))°"
+          .currentTempValue = "\(WeatherUtilities.roundTemperatureString(from: weather.main.temp))°"
         detailViewController
-          .minValue = "\(homeTabViewModel.roundTemperatureString(from: weather.main.tempMin))°"
+          .minValue = "\(WeatherUtilities.roundTemperatureString(from: weather.main.tempMin))°"
         detailViewController
-          .maxValue = "\(homeTabViewModel.roundTemperatureString(from: weather.main.tempMax))°"
+          .maxValue = "\(WeatherUtilities.roundTemperatureString(from: weather.main.tempMax))°"
         detailViewController.weatherDescription = weather.weather.first?.main
         detailViewController
           .backgroundImageName =

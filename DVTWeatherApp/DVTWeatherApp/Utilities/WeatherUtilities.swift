@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct WeatherUtilities {
-    static func roundTemperatureString(from temperature: Double) -> String {
-        return ""
-    }
-    static func getDayWeek(from dateString: String) -> String {
-        return ""
-    }
-    
-    static func updateWeatherForecast() {
-        
-    }
+enum WeatherUtilities {
+  static func roundTemperatureString(from temperature: Double) -> String {
+    let roundedTemperature = Int(round(temperature))
+    return "\(roundedTemperature)"
+  }
+
+  static func getDayWeek(from dateString: String) -> String {
+    return ""
+  }
+
+  static func updateWeatherForecast() {}
 }

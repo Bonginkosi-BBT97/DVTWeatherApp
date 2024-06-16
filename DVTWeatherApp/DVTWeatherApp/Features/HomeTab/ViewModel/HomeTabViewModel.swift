@@ -71,9 +71,9 @@ class HomeTabViewModel: ObservableObject {
   private func updateCurrentWeatherProperties() {
     guard let weather = currentWeather else { return }
 
-    currentTemperature = roundTemperatureString(from: weather.main.temp)
-    currentMinTemperature = roundTemperatureString(from: weather.main.tempMin)
-    currentMaxTemperature = roundTemperatureString(from: weather.main.tempMax)
+    currentTemperature = WeatherUtilities.roundTemperatureString(from: weather.main.temp)
+    currentMinTemperature = WeatherUtilities.roundTemperatureString(from: weather.main.tempMin)
+    currentMaxTemperature = WeatherUtilities.roundTemperatureString(from: weather.main.tempMax)
 
     let weatherDescription = WeatherDescription(description: weather.weather.first?.main ?? "SUNNY")
     currentWeatherDescription = weatherDescription.rawValue
@@ -83,11 +83,6 @@ class HomeTabViewModel: ObservableObject {
 
     let backgroundColor = BackgroundColorCode(imageName: backgroundImage)
     self.backgroundColor = backgroundColor.color
-  }
-
-  func roundTemperatureString(from temperature: Double) -> String {
-    let roundedTemperature = Int(round(temperature))
-    return "\(roundedTemperature)"
   }
 
   func getDayOfWeek(from dateString: String) -> String? {
@@ -129,7 +124,7 @@ class HomeTabViewModel: ObservableObject {
 
       if !uniqueDays.contains(detail.day) {
         forecastDaysOfWeek.append(detail.day)
-        forecastTemperatures.append(roundTemperatureString(from: Double(detail.temperature) ?? 0.0))
+        forecastTemperatures.append(WeatherUtilities.roundTemperatureString(from: Double(detail.temperature) ?? 0.0))
         forecastDescriptions.append(detail.description)
 
         if let weatherDescription = WeatherDescription(rawValue: detail.description.uppercased()) {

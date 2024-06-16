@@ -9,7 +9,6 @@ import UIKit
 
 class FavouritesTableViewController: UITableViewController, FavouritesSearchDelegate {
   var favouritesViewModel = FavouritesViewModel()
-  var homeTabViewModel = HomeTabViewModel()
   override func viewDidLoad() {
     super.viewDidLoad()
 
