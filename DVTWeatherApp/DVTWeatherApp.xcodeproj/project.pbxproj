@@ -32,6 +32,7 @@
 		DED01CBC2C19F5AE003CE221 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED01CB82C19F5AE003CE221 /* HomeTabView.swift */; };
 		DED01CBE2C19F91D003CE221 /* CurrentWeatherCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED01CBD2C19F91D003CE221 /* CurrentWeatherCardView.swift */; };
 		DED01CC02C1A009F003CE221 /* WeatherForecastCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED01CBF2C1A009F003CE221 /* WeatherForecastCardView.swift */; };
+		DED11F7B2C1FA7AC00D5D489 /* WeatherUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED11F7A2C1FA7AC00D5D489 /* WeatherUtilities.swift */; };
 		DEE7605D2C186DC3005DE1D8 /* DVTWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7605C2C186DC3005DE1D8 /* DVTWeatherApp.swift */; };
 		DEE7605F2C186DC3005DE1D8 /* TabViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7605E2C186DC3005DE1D8 /* TabViewHandler.swift */; };
 		DEE760612C186DC5005DE1D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE760602C186DC5005DE1D8 /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 		DED01CB82C19F5AE003CE221 /* HomeTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		DED01CBD2C19F91D003CE221 /* CurrentWeatherCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherCardView.swift; sourceTree = "<group>"; };
 		DED01CBF2C1A009F003CE221 /* WeatherForecastCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastCardView.swift; sourceTree = "<group>"; };
+		DED11F7A2C1FA7AC00D5D489 /* WeatherUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUtilities.swift; sourceTree = "<group>"; };
 		DEE760592C186DC3005DE1D8 /* DVTWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVTWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE7605C2C186DC3005DE1D8 /* DVTWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVTWeatherApp.swift; sourceTree = "<group>"; };
 		DEE7605E2C186DC3005DE1D8 /* TabViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewHandler.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				DEB7CE552C1B219C00851568 /* HexColor+Extension.swift */,
 				DEB7CE702C1BF6EA00851568 /* TabViewModifier.swift */,
+				DED11F7A2C1FA7AC00D5D489 /* WeatherUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				DEB7CE532C1B1E2800851568 /* BackgroundColorEnum.swift in Sources */,
 				DEFAB6072C1C9C7A00886DBE /* FavouritesTableViewController+Extension.swift in Sources */,
 				DEB7CE562C1B219C00851568 /* HexColor+Extension.swift in Sources */,
+				DED11F7B2C1FA7AC00D5D489 /* WeatherUtilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
