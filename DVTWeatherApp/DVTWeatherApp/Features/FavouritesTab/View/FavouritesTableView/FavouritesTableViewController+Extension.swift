@@ -48,7 +48,6 @@ extension FavouritesTableViewController {
   }
 
   @objc func deleteButtonTapped() {
-
     let alertController = UIAlertController(
       title: "Confirm Deletion",
       message: "Are you sure you want to delete all favourite cities?",
