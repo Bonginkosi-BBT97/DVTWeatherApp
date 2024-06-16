@@ -16,6 +16,7 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
   @IBOutlet var minTempLabel: UILabel!
   @IBOutlet var backgroundImage: UIImageView!
 
+  @IBOutlet var currentTemperaturesStack: UIStackView!
   @IBOutlet var weatherForecastTableView: UITableView!
 
   var backgroundColour: UIColor?
@@ -40,6 +41,14 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
     currentWeatherDescriptionLabel.text = weatherDescription ?? "N/A"
     let imageName = backgroundImageName ?? "sunny"
     backgroundImage.image = UIImage(named: imageName)
+    backgroundColour =
+      UIColor(
+        BackgroundColorCode(imageName: BackgroundImageName(rawValue: backgroundImageName ?? "sunny") ?? .sunny)
+          .color
+      )
+    currentTemperaturesStack.backgroundColor = backgroundColour
+    view.backgroundColor = backgroundColour
+
     weatherForecastTableView.reloadData()
   }
 
@@ -59,10 +68,11 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView
       .dequeueReusableCell(withIdentifier: "DetailViewCell", for: indexPath) as? DetailTableViewCell
+
     else {
       return UITableViewCell()
     }
-
+    cell.backgroundColour = backgroundColour
     return cell
   }
 }

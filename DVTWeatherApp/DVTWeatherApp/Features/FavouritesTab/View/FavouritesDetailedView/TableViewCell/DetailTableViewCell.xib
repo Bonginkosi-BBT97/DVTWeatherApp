@@ -46,7 +46,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                <color key="backgroundColor" systemColor="systemGray2Color"/>
                 <constraints>
                     <constraint firstItem="tTF-r6-fFS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8Jc-e2-Jwv"/>
                     <constraint firstItem="tTF-r6-fFS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B1X-zZ-nxq"/>
@@ -67,8 +67,8 @@
     </objects>
     <resources>
         <image name="clear" width="13" height="13"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
