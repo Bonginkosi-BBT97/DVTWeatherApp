@@ -36,7 +36,7 @@ extension FavouritesTableViewController {
 
 //    let detailViewController = FavouritesDetailedViewController()
 //    navigationController?.pushViewController(detailViewController, animated: true)
-
+    let city = favouritesViewModel.cities[indexPath.row]
     let storyboard = UIStoryboard(name: "FavouritesDetailedView", bundle: nil)
     if let detailViewController = storyboard
       .instantiateViewController(
@@ -44,6 +44,7 @@ extension FavouritesTableViewController {
       ) as? FavouritesDetailedViewController
     {
       detailViewController.changeTextValue = "CHANGED THE TEXT"
+      detailViewController.cityName = city.name
       navigationController?.pushViewController(detailViewController, animated: true)
     } else {
       print("Error: Could not instantiate view controller with identifier FavouritesDetailedViewController")
