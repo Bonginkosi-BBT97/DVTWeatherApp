@@ -34,8 +34,20 @@ extension FavouritesTableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
 
-    let detailViewController = FavouritesDetailedViewController()
-    navigationController?.pushViewController(detailViewController, animated: true)
+//    let detailViewController = FavouritesDetailedViewController()
+//    navigationController?.pushViewController(detailViewController, animated: true)
+
+    let storyboard = UIStoryboard(name: "FavouritesDetailedView", bundle: nil)
+    if let detailViewController = storyboard
+      .instantiateViewController(
+        withIdentifier: "FavouritesDetailedViewController"
+      ) as? FavouritesDetailedViewController
+    {
+      detailViewController.changeTextValue = "CHANGED THE TEXT"
+      navigationController?.pushViewController(detailViewController, animated: true)
+    } else {
+      print("Error: Could not instantiate view controller with identifier FavouritesDetailedViewController")
+    }
   }
 
   @objc func addButtonTapped() {

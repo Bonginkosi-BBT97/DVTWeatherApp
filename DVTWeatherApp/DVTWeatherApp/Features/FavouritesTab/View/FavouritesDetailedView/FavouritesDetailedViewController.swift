@@ -9,9 +9,17 @@ import Foundation
 import UIKit
 
 class FavouritesDetailedViewController: UIViewController {
+  @IBOutlet var heading: UILabel!
+
+  @IBOutlet var changeText: UILabel!
+
+  var changeTextValue: String?
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .white
+    //  view.backgroundColor = .white
     title = "Detail"
+    heading.text = "This heading"
+    changeText.text = changeTextValue ?? "Change This"
   }
 }
