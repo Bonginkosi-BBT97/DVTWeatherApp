@@ -50,11 +50,12 @@ extension FavouritesTableViewController {
         detailViewController
           .maxValue = "\(homeTabViewModel.roundTemperatureString(from: weather.main.tempMax))°"
         detailViewController.weatherDescription = weather.weather.first?.main
+        detailViewController
+          .backgroundImageName =
+          "\(BackgroundImageName(description: WeatherDescription(description: weather.weather.first?.main ?? "SUNNY")))"
       }
 
       navigationController?.pushViewController(detailViewController, animated: true)
-    } else {
-      print("Error: Could not instantiate view controller with identifier FavouritesDetailedViewController")
     }
   }
 

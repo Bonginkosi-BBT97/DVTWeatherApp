@@ -24,7 +24,7 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
   var maxValue: String?
   var cityName: String?
   var weatherDescription: String?
-
+  var backgroundImageName: String?
   override func viewDidLoad() {
     super.viewDidLoad()
     loadTopSectionData()
@@ -38,7 +38,8 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
     minTempLabel.text = minValue ?? "N/A"
     currentTempLabel.text = currentTempValue ?? "N/A"
     currentWeatherDescriptionLabel.text = weatherDescription ?? "N/A"
-
+    let imageName = backgroundImageName ?? "sunny"
+    backgroundImage.image = UIImage(named: imageName)
     weatherForecastTableView.reloadData()
   }
 
