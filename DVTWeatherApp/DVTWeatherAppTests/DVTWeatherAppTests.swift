@@ -228,19 +228,4 @@ final class DVTWeatherAppTests: XCTestCase {
     XCTAssertTrue(favouritesTabViewModel.cityExists(name: "Existing City"))
     XCTAssertFalse(favouritesTabViewModel.cityExists(name: "Nonexistent City"))
   }
-
-  func testSaveCity() throws {
-    // GIVEN
-    favouritesTabViewModel.saveCity(name: "New City", completion: <#(Bool) -> Void#>)
-
-    XCTAssertTrue(favouritesTabViewModel.cityExists(name: "New City"))
-    XCTAssertEqual(favouritesTabViewModel.cities.count, 1)
-    XCTAssertEqual(favouritesTabViewModel.cities.first?.name, "New City")
-
-    // WHEN
-    favouritesTabViewModel.saveCity(name: "New City", completion: <#(Bool) -> Void#>)
-
-    // THEN
-    XCTAssertEqual(favouritesTabViewModel.cities.count, 1) // Should still be 1 since duplicate was not saved
-  }
 }

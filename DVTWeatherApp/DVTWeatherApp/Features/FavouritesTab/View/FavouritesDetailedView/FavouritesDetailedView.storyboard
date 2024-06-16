@@ -112,13 +112,21 @@
                                     <constraint firstItem="97c-Ba-BVB" firstAttribute="leading" secondItem="pR1-aw-6D5" secondAttribute="leading" constant="-1" id="rOx-gg-ZF6"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GNZ-vN-Kwc">
+                                <rect key="frame" x="5" y="362" width="388" height="456"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GNZ-vN-Kwc" secondAttribute="bottom" id="3iM-0y-dSn"/>
+                            <constraint firstItem="GNZ-vN-Kwc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="DtX-RK-UhB"/>
                             <constraint firstItem="pR1-aw-6D5" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="I3h-S3-eEL"/>
+                            <constraint firstItem="GNZ-vN-Kwc" firstAttribute="top" secondItem="pR1-aw-6D5" secondAttribute="bottom" constant="10" id="LW1-hK-nwK"/>
                             <constraint firstItem="pR1-aw-6D5" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="PVa-hh-9HR"/>
                             <constraint firstItem="pR1-aw-6D5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="nBp-HP-doL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GNZ-vN-Kwc" secondAttribute="trailing" id="nVg-RO-uzW"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pR1-aw-6D5" secondAttribute="trailing" id="v6W-TO-cYq"/>
                             <constraint firstAttribute="bottom" secondItem="pR1-aw-6D5" secondAttribute="bottom" constant="500" id="zmA-V8-8xv"/>
                         </constraints>
@@ -130,6 +138,7 @@
                         <outlet property="currentWeatherDescriptionLabel" destination="TdK-h5-zQz" id="Ybr-3G-eI0"/>
                         <outlet property="maxTempLabel" destination="Bh8-et-YJG" id="b7H-0e-ilI"/>
                         <outlet property="minTempLabel" destination="t9v-Qu-koS" id="PEz-ZW-kgP"/>
+                        <outlet property="weatherForecastTableView" destination="GNZ-vN-Kwc" id="k0g-fo-FCS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

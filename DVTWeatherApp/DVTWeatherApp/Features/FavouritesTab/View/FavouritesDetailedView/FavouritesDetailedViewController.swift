@@ -8,13 +8,15 @@
 import Foundation
 import UIKit
 
-class FavouritesDetailedViewController: UIViewController {
+class FavouritesDetailedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   @IBOutlet var currentTemperatureLabel: UILabel!
   @IBOutlet var currentWeatherDescriptionLabel: UILabel!
   @IBOutlet var currentTempLabel: UILabel!
   @IBOutlet var maxTempLabel: UILabel!
   @IBOutlet var minTempLabel: UILabel!
   @IBOutlet var backgroundImage: UIImageView!
+
+  @IBOutlet var weatherForecastTableView: UITableView!
 
   var backgroundColour: UIColor?
   var currentTempValue: String?
@@ -25,15 +27,41 @@ class FavouritesDetailedViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    loadData()
+    loadTopSectionData()
+    setupTableView()
   }
 
-  private func loadData() {
+  private func loadTopSectionData() {
     title = cityName ?? "Weather"
     currentTemperatureLabel.text = currentTempValue ?? "N/A"
     maxTempLabel.text = maxValue ?? "N/A"
     minTempLabel.text = minValue ?? "N/A"
     currentTempLabel.text = currentTempValue ?? "N/A"
     currentWeatherDescriptionLabel.text = weatherDescription ?? "N/A"
+
+    weatherForecastTableView.reloadData()
+  }
+
+  private func setupTableView() {
+    weatherForecastTableView.dataSource = self
+    weatherForecastTableView.delegate = self
+    weatherForecastTableView.register(
+      UINib(nibName: "DetailedTableViewCell", bundle: nil),
+      forCellReuseIdentifier: "DetailedViewCell"
+    )
+  }
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 5
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView
+      .dequeueReusableCell(withIdentifier: "DetailedViewCell", for: indexPath) as? DetailedTableViewCell
+    else {
+      return UITableViewCell()
+    }
+
+    return cell
   }
 }
