@@ -34,8 +34,6 @@ extension FavouritesTableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
 
-//    let detailViewController = FavouritesDetailedViewController()
-//    navigationController?.pushViewController(detailViewController, animated: true)
     let city = favouritesViewModel.cities[indexPath.row]
     let storyboard = UIStoryboard(name: "FavouritesDetailedView", bundle: nil)
     if let detailViewController = storyboard
@@ -43,8 +41,17 @@ extension FavouritesTableViewController {
         withIdentifier: "FavouritesDetailedViewController"
       ) as? FavouritesDetailedViewController
     {
-      detailViewController.changeTextValue = "CHANGED THE TEXT"
-      detailViewController.cityName = city.name
+      if let cityName = city.name, let weather = favouritesViewModel.weatherData[cityName] {
+        detailViewController.cityName = weather.name
+        detailViewController
+          .currentTempValue = "\(homeTabViewModel.roundTemperatureString(from: weather.main.temp))°"
+        detailViewController
+          .minValue = "\(homeTabViewModel.roundTemperatureString(from: weather.main.tempMin))°"
+        detailViewController
+          .maxValue = "\(homeTabViewModel.roundTemperatureString(from: weather.main.tempMax))°"
+        detailViewController.weatherDescription = weather.weather.first?.main
+      }
+
       navigationController?.pushViewController(detailViewController, animated: true)
     } else {
       print("Error: Could not instantiate view controller with identifier FavouritesDetailedViewController")

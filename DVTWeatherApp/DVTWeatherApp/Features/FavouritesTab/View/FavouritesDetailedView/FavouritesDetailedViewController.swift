@@ -9,33 +9,31 @@ import Foundation
 import UIKit
 
 class FavouritesDetailedViewController: UIViewController {
-  @IBOutlet var heading: UILabel!
   @IBOutlet var currentTemperatureLabel: UILabel!
   @IBOutlet var currentWeatherDescriptionLabel: UILabel!
   @IBOutlet var currentTempLabel: UILabel!
-  @IBOutlet var changeText: UILabel!
   @IBOutlet var maxTempLabel: UILabel!
   @IBOutlet var minTempLabel: UILabel!
   @IBOutlet var backgroundImage: UIImageView!
 
-  var background: UIColor?
-  var changeTextValue: String?
+  var backgroundColour: UIColor?
   var currentTempValue: String?
   var minValue: String?
   var maxValue: String?
   var cityName: String?
+  var weatherDescription: String?
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    //  view.backgroundColor = .white
-    heading.text = "This heading"
-    changeText.text = changeTextValue ?? "Change This"
     loadData()
   }
 
-  func loadData() {
+  private func loadData() {
     title = cityName ?? "Weather"
-    currentTemperatureLabel.text = currentTempValue ?? "10"
-    maxTempLabel.text = maxValue ?? "18"
-    minTempLabel.text = minValue ?? "13"
+    currentTemperatureLabel.text = currentTempValue ?? "N/A"
+    maxTempLabel.text = maxValue ?? "N/A"
+    minTempLabel.text = minValue ?? "N/A"
+    currentTempLabel.text = currentTempValue ?? "N/A"
+    currentWeatherDescriptionLabel.text = weatherDescription ?? "N/A"
   }
 }
