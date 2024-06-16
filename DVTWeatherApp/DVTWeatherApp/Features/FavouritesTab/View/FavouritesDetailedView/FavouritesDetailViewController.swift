@@ -1,5 +1,5 @@
 //
-//  FavouritesDetailedViewController.swift
+//  FavouritesDetailViewController.swift
 //  DVTWeatherApp
 //
 //  Created by Bonginkosi Tshabalala on 2024/06/14.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class FavouritesDetailedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FavouritesDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   @IBOutlet var currentTemperatureLabel: UILabel!
   @IBOutlet var currentWeatherDescriptionLabel: UILabel!
   @IBOutlet var currentTempLabel: UILabel!
@@ -46,8 +46,8 @@ class FavouritesDetailedViewController: UIViewController, UITableViewDataSource,
     weatherForecastTableView.dataSource = self
     weatherForecastTableView.delegate = self
     weatherForecastTableView.register(
-      UINib(nibName: "DetailedTableViewCell", bundle: nil),
-      forCellReuseIdentifier: "DetailedViewCell"
+      UINib(nibName: "DetailTableViewCell", bundle: nil),
+      forCellReuseIdentifier: "DetailViewCell"
     )
   }
 
@@ -57,7 +57,7 @@ class FavouritesDetailedViewController: UIViewController, UITableViewDataSource,
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView
-      .dequeueReusableCell(withIdentifier: "DetailedViewCell", for: indexPath) as? DetailedTableViewCell
+      .dequeueReusableCell(withIdentifier: "DetailViewCell", for: indexPath) as? DetailTableViewCell
     else {
       return UITableViewCell()
     }

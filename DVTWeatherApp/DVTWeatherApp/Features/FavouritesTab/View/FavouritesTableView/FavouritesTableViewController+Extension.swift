@@ -35,11 +35,11 @@ extension FavouritesTableViewController {
     tableView.deselectRow(at: indexPath, animated: true)
 
     let city = favouritesViewModel.cities[indexPath.row]
-    let storyboard = UIStoryboard(name: "FavouritesDetailedView", bundle: nil)
+    let storyboard = UIStoryboard(name: "FavouritesDetailView", bundle: nil)
     if let detailViewController = storyboard
       .instantiateViewController(
-        withIdentifier: "FavouritesDetailedViewController"
-      ) as? FavouritesDetailedViewController
+        withIdentifier: "FavouritesDetailViewController"
+      ) as? FavouritesDetailViewController
     {
       if let cityName = city.name, let weather = favouritesViewModel.weatherData[cityName] {
         detailViewController.cityName = weather.name
