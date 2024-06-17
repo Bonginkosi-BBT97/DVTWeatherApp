@@ -12,6 +12,7 @@ import SwiftUI
 struct HomeTabView: View {
   @EnvironmentObject var locationManager: LocationManager
   @StateObject var homeTabViewModel = HomeTabViewModel()
+  @State private var cancellable: AnyCancellable?
 
   var body: some View {
     VStack {
@@ -24,16 +25,22 @@ struct HomeTabView: View {
     .background(homeTabViewModel.backgroundColor)
     .onAppear {
       updateWeatherIfLocationAvailable()
+      cancellable = locationManager.$location
+        .debounce(for: .seconds(2), scheduler: RunLoop.main)
+        .sink { _ in
+          self.updateWeatherIfLocationAvailable()
+        }
     }
-    .onChange(of: locationManager.location) { _ in
-      updateWeatherIfLocationAvailable()
+    .onDisappear {
+      cancellable?.cancel()
     }
   }
 
   private func updateWeatherIfLocationAvailable() {
-    if let location = locationManager.location {
-      homeTabViewModel.fetchCurrentWeather(for: location)
-      homeTabViewModel.fetchWeatherForecast(for: location)
+    guard let location = locationManager.location else {
+      return
     }
+    homeTabViewModel.fetchCurrentWeather(for: location)
+    homeTabViewModel.fetchWeatherForecast(for: location)
   }
 }

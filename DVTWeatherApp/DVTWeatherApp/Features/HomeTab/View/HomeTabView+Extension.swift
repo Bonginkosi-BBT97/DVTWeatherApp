@@ -35,7 +35,7 @@ extension HomeTabView {
 
   var middleSection: some View {
     VStack {
-      HStack {
+      HStack(alignment: .center, spacing: -10) {
         CurrentWeatherCardView(temperatureValue: homeTabViewModel.currentMinTemperature, title: "min")
         Spacer()
         CurrentWeatherCardView(temperatureValue: homeTabViewModel.currentTemperature, title: "Current")
@@ -47,7 +47,7 @@ extension HomeTabView {
   }
 
   var bottomSection: some View {
-    VStack {
+    VStack(alignment: .center) {
       if locationManager.location != nil {
         ForEach(0..<min(homeTabViewModel.forecastDaysOfWeek.count, 5), id: \.self) { index in
 
@@ -59,7 +59,7 @@ extension HomeTabView {
           .padding(.bottom)
         }
       } else {
-        Text("Please Ensure Your Location Can Not Be Accessed")
+        Text("Please Ensure Your Location Can Be Accessed")
       }
     }
     .padding(.top, 10)

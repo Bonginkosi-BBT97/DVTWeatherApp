@@ -5,6 +5,7 @@
 //  Created by Bonginkosi Tshabalala on 2024/06/11.
 //
 
+import CoreData
 import CoreLocation
 @testable import DVTWeatherApp
 import XCTest
@@ -16,13 +17,30 @@ final class DVTWeatherAppTests: XCTestCase {
   let mockURLSession = MockURLSession()
 
   var homeTabViewModel: HomeTabViewModel!
+  var favouritesTabViewModel: FavouritesViewModel!
+
+  var container: NSPersistentContainer!
 
   @MainActor override func setUpWithError() throws {
     homeTabViewModel = HomeTabViewModel()
+
+    container = NSPersistentContainer(name: "FavouritesContainer")
+    let description = NSPersistentStoreDescription()
+    description.type = NSInMemoryStoreType
+    container.persistentStoreDescriptions = [description]
+    container.loadPersistentStores { _, error in
+      if let error = error {
+        fatalError("Unable to load persistent stores: \(error)")
+      }
+    }
+    favouritesTabViewModel = FavouritesViewModel()
+    favouritesTabViewModel.container = container
   }
 
   @MainActor override func tearDownWithError() throws {
     homeTabViewModel = nil
+    favouritesTabViewModel = nil
+    container = nil
   }
 
   func testGetCurrentWeather_Success() async throws {
@@ -35,7 +53,7 @@ final class DVTWeatherAppTests: XCTestCase {
         "main": {"temp": 14.75, "feels_like": 13.98, "temp_min": 11.83, "temp_max": 16.67, "pressure": 1013, "humidity": 65},
         "name": "London",
         "wind": {"speed": 5.66, "deg": 320}
-    }
+    }  
     """.data(using: .utf8)!
 
     let weatherAPIService = WeatherAPIService(session: mockURLSession)
@@ -119,11 +137,11 @@ final class DVTWeatherAppTests: XCTestCase {
     let temperature5 = 16.2
 
     // WHEN
-    let temperatureResults1 = homeTabViewModel.roundTemperatureString(from: temperature1)
-    let temperatureResults2 = homeTabViewModel.roundTemperatureString(from: temperature2)
-    let temperatureResults3 = homeTabViewModel.roundTemperatureString(from: temperature3)
-    let temperatureResults4 = homeTabViewModel.roundTemperatureString(from: temperature4)
-    let temperatureResults5 = homeTabViewModel.roundTemperatureString(from: temperature5)
+    let temperatureResults1 = WeatherUtilities.roundTemperatureString(from: temperature1)
+    let temperatureResults2 = WeatherUtilities.roundTemperatureString(from: temperature2)
+    let temperatureResults3 = WeatherUtilities.roundTemperatureString(from: temperature3)
+    let temperatureResults4 = WeatherUtilities.roundTemperatureString(from: temperature4)
+    let temperatureResults5 = WeatherUtilities.roundTemperatureString(from: temperature5)
 
     // THEN
     XCTAssertEqual(temperatureResults1, "17", "16.7 should round up tp 17")
@@ -180,7 +198,34 @@ final class DVTWeatherAppTests: XCTestCase {
     // WHEN
     for (dateString, expectedDays) in zip(dateStringData, expectedDaysData) {
       /// THEN
-      XCTAssertEqual(homeTabViewModel.getDayOfWeek(from: dateString), expectedDays)
+      XCTAssertEqual(WeatherUtilities.getDayOfWeek(from: dateString), expectedDays)
     }
+  }
+
+  // MARK: - - Test For The FavouritesViewModel --
+
+  func testFetchCities() throws {
+    // GIVEN
+    let city = CityEntity(context: container.viewContext)
+    city.name = "Test City"
+
+    // WHEN
+    try container.viewContext.save()
+    favouritesTabViewModel.fetchCities()
+
+    // THEN
+    XCTAssertEqual(favouritesTabViewModel.cities.count, 1)
+    XCTAssertEqual(favouritesTabViewModel.cities.first?.name, "Test City")
+  }
+
+  func testCityExists() throws {
+    // GIVEN
+    let city = CityEntity(context: container.viewContext)
+    city.name = "Existing City"
+    // WHEN
+    try container.viewContext.save()
+    // THEN
+    XCTAssertTrue(favouritesTabViewModel.cityExists(name: "Existing City"))
+    XCTAssertFalse(favouritesTabViewModel.cityExists(name: "Nonexistent City"))
   }
 }
