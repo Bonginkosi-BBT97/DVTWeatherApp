@@ -12,8 +12,4 @@ class DetailTableViewCell: UITableViewCell {
   @IBOutlet var weatherIcon: UIImageView!
   @IBOutlet var forecastTempLabel: UILabel!
   var backgroundColour: UIColor?
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
-  }
 }
