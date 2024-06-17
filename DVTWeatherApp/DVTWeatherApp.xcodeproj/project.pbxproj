@@ -212,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB7CE742C1BF9B100851568 /* FavouritesSearchView */,
-				DEB7CE732C1BF97800851568 /* FavouritesDetailedView */,
+				DEB7CE732C1BF97800851568 /* FavouritesDetailView */,
 				DEB7CE722C1BF93E00851568 /* FavouritesTableView */,
 			);
 			path = View;
@@ -229,14 +229,14 @@
 			path = FavouritesTableView;
 			sourceTree = "<group>";
 		};
-		DEB7CE732C1BF97800851568 /* FavouritesDetailedView */ = {
+		DEB7CE732C1BF97800851568 /* FavouritesDetailView */ = {
 			isa = PBXGroup;
 			children = (
 				DE62D4852C1F7B9700BD2CCF /* TableViewCell */,
 				DEB7CE6C2C1BF03100851568 /* FavouritesDetailViewController.swift */,
 				DEC0C90E2C1EC16B00008E1E /* FavouritesDetailView.storyboard */,
 			);
-			path = FavouritesDetailedView;
+			path = FavouritesDetailView;
 			sourceTree = "<group>";
 		};
 		DEB7CE742C1BF9B100851568 /* FavouritesSearchView */ = {

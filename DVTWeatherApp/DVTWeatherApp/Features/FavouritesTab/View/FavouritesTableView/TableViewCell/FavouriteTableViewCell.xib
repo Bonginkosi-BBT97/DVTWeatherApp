@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="CityName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3N-ar-YJz">
-                        <rect key="frame" x="15.999999999999993" y="22" width="111.33333333333331" height="20.333333333333329"/>
+                        <rect key="frame" x="19.999999999999993" y="22" width="107.33333333333331" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                     <constraint firstItem="clx-qw-Vbm" firstAttribute="leading" secondItem="B3N-ar-YJz" secondAttribute="trailing" constant="25.666666666666686" id="apC-yL-CU7"/>
                     <constraint firstAttribute="trailing" secondItem="29G-b4-6ap" secondAttribute="trailing" constant="15" id="f0S-kP-Q04"/>
                     <constraint firstItem="clx-qw-Vbm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fZm-lp-Kc9"/>
-                    <constraint firstItem="B3N-ar-YJz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="kWF-mP-oKG"/>
+                    <constraint firstItem="B3N-ar-YJz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="kWF-mP-oKG"/>
                     <constraint firstItem="B3N-ar-YJz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oEx-nb-24x"/>
                 </constraints>
             </tableViewCellContentView>
