@@ -137,11 +137,11 @@ final class DVTWeatherAppTests: XCTestCase {
     let temperature5 = 16.2
 
     // WHEN
-    let temperatureResults1 = homeTabViewModel.roundTemperatureString(from: temperature1)
-    let temperatureResults2 = homeTabViewModel.roundTemperatureString(from: temperature2)
-    let temperatureResults3 = homeTabViewModel.roundTemperatureString(from: temperature3)
-    let temperatureResults4 = homeTabViewModel.roundTemperatureString(from: temperature4)
-    let temperatureResults5 = homeTabViewModel.roundTemperatureString(from: temperature5)
+    let temperatureResults1 = WeatherUtilities.roundTemperatureString(from: temperature1)
+    let temperatureResults2 = WeatherUtilities.roundTemperatureString(from: temperature2)
+    let temperatureResults3 = WeatherUtilities.roundTemperatureString(from: temperature3)
+    let temperatureResults4 = WeatherUtilities.roundTemperatureString(from: temperature4)
+    let temperatureResults5 = WeatherUtilities.roundTemperatureString(from: temperature5)
 
     // THEN
     XCTAssertEqual(temperatureResults1, "17", "16.7 should round up tp 17")
@@ -198,7 +198,7 @@ final class DVTWeatherAppTests: XCTestCase {
     // WHEN
     for (dateString, expectedDays) in zip(dateStringData, expectedDaysData) {
       /// THEN
-      XCTAssertEqual(homeTabViewModel.getDayOfWeek(from: dateString), expectedDays)
+      XCTAssertEqual(WeatherUtilities.getDayOfWeek(from: dateString), expectedDays)
     }
   }
 

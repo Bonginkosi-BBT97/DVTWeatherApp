@@ -5,6 +5,7 @@
 //  Created by Bonginkosi Tshabalala on 2024/06/14.
 //
 
+import Combine
 import Foundation
 import UIKit
 
@@ -15,9 +16,11 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
   @IBOutlet var maxTempLabel: UILabel!
   @IBOutlet var minTempLabel: UILabel!
   @IBOutlet var backgroundImage: UIImageView!
-
   @IBOutlet var currentTemperaturesStack: UIStackView!
   @IBOutlet var weatherForecastTableView: UITableView!
+
+  private var favouritesViewModel = FavouritesViewModel()
+  private var cancellables = Set<AnyCancellable>()
 
   var backgroundColour: UIColor?
   var currentTempValue: String?
@@ -26,19 +29,35 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
   var cityName: String?
   var weatherDescription: String?
   var backgroundImageName: String?
+  let dataNotAvailable = "N/A"
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    if let cityName = cityName {
+      favouritesViewModel.fetchWeatherForecast(for: cityName)
+    }
     loadTopSectionData()
     setupTableView()
+    setupBindings()
+  }
+
+  private func setupBindings() {
+    favouritesViewModel.$forecastDaysOfWeek
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] _ in
+        self?.weatherForecastTableView.reloadData()
+      }
+      .store(in: &cancellables)
   }
 
   private func loadTopSectionData() {
     title = cityName ?? "Weather"
-    currentTemperatureLabel.text = currentTempValue ?? "N/A"
-    maxTempLabel.text = maxValue ?? "N/A"
-    minTempLabel.text = minValue ?? "N/A"
-    currentTempLabel.text = currentTempValue ?? "N/A"
-    currentWeatherDescriptionLabel.text = weatherDescription ?? "N/A"
+    favouritesViewModel.fetchWeatherForecast(for: "Cape Town")
+    currentTemperatureLabel.text = currentTempValue ?? dataNotAvailable
+    maxTempLabel.text = maxValue ?? dataNotAvailable
+    minTempLabel.text = minValue ?? dataNotAvailable
+    currentTempLabel.text = currentTempValue ?? dataNotAvailable
+    currentWeatherDescriptionLabel.text = weatherDescription ?? dataNotAvailable
     let imageName = backgroundImageName ?? "sunny"
     backgroundImage.image = UIImage(named: imageName)
     backgroundColour =
@@ -62,7 +81,7 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return favouritesViewModel.forecastDaysOfWeek.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +91,11 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
     else {
       return UITableViewCell()
     }
+    cell.dayOfWeekLabel.text = favouritesViewModel.forecastDaysOfWeek[indexPath.row]
+    cell.forecastTempLabel.text = "\(favouritesViewModel.forecastTemperatures[indexPath.row])°"
+    cell.weatherIcon.image = UIImage(named: favouritesViewModel.forecastIconNames[indexPath.row])
     cell.backgroundColour = backgroundColour
+
     return cell
   }
 }
