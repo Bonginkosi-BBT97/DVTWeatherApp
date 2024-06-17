@@ -33,6 +33,7 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationItem.backBarButtonItem?.tintColor = .white
     if let cityName = cityName {
       favouritesViewModel.fetchWeatherForecast(for: cityName)
     }

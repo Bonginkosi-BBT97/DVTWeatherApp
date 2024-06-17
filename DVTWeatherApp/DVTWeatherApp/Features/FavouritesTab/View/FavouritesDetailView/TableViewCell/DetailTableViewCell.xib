@@ -13,7 +13,7 @@
         <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailViewCell" rowHeight="60" id="KGk-i7-Jjw" userLabel="DetailViewCell" customClass="DetailTableViewCell" customModule="DVTWeatherApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="333" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="333" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -46,7 +46,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                 <constraints>
                     <constraint firstItem="tTF-r6-fFS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8Jc-e2-Jwv"/>
                     <constraint firstItem="tTF-r6-fFS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B1X-zZ-nxq"/>
@@ -57,6 +57,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" systemColor="systemGray6Color"/>
             <connections>
                 <outlet property="dayOfWeekLabel" destination="OlP-Jj-cqh" id="j4l-dP-kfi"/>
                 <outlet property="forecastTempLabel" destination="ElC-1z-a2W" id="fuz-Dz-wR8"/>
@@ -67,8 +68,11 @@
     </objects>
     <resources>
         <image name="clear" width="13" height="13"/>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
