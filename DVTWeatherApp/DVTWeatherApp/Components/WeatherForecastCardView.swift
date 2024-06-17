@@ -17,10 +17,12 @@ struct WeatherForecastCardView: View {
       Text(weekDay)
         .font(.subheadline)
         .bold()
+        .frame(width: 80, alignment: .leading)
       Spacer()
       Image(weatherIconName)
         .resizable()
         .scaledToFit()
+        .frame(width: 30, height: 30)
       Spacer()
       ZStack(alignment: .topTrailing) {
         Text(temperatureValue)
