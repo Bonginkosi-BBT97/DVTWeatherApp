@@ -24,7 +24,7 @@ extension FavouritesTableViewController {
     if let cityName = city.name, let weather = favouritesViewModel.weatherData[cityName] {
       cell.cityName.text = weather.name
       cell.weatherTemperature.text = "\(WeatherUtilities.roundTemperatureString(from: weather.main.temp))°"
-      cell.weatherDescription.text = weather.weather.first?.description ?? ""
+      cell.weatherDescription.text = weather.weather.first?.description
     }
 
     cell.backgroundColor = .white

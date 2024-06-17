@@ -125,7 +125,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GNZ-vN-Kwc" secondAttribute="bottom" constant="115" id="3iM-0y-dSn"/>
                             <constraint firstItem="GNZ-vN-Kwc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DtX-RK-UhB"/>
@@ -158,6 +158,9 @@
         <image name="sunny" width="360" height="321"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

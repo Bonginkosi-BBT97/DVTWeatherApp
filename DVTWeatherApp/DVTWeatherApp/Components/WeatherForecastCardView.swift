@@ -17,7 +17,7 @@ struct WeatherForecastCardView: View {
       Text(weekDay)
         .font(.subheadline)
         .bold()
-        .frame(width: 80, alignment: .leading)
+        .frame(width: 70, alignment: .leading)
       Spacer()
       Image(weatherIconName)
         .resizable()
@@ -29,8 +29,9 @@ struct WeatherForecastCardView: View {
         Text("°")
           .offset(x: 10, y: -10)
       }
+      .padding(.trailing, 15)
     }
-    .padding([.trailing, .leading], 30)
+    .padding([.trailing, .leading], 50)
     .foregroundColor(.white)
   }
 }

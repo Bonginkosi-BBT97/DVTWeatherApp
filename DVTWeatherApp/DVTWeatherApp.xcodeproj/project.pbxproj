@@ -800,7 +800,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_ASSET_PATHS = "\"DVTWeatherApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 2RWQ79GVQP;
 				ENABLE_PREVIEWS = YES;
@@ -808,6 +808,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DVTWeatherApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DVT Weather";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please Grant Permission for Location Access to Retrieve Current Weather Based on Your Location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please Grant Permission for Location Access to Retrieve Current Weather Based on Your Location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -838,7 +839,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_ASSET_PATHS = "\"DVTWeatherApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 2RWQ79GVQP;
 				ENABLE_PREVIEWS = YES;
@@ -846,6 +847,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DVTWeatherApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DVT Weather";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please Grant Permission for Location Access to Retrieve Current Weather Based on Your Location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please Grant Permission for Location Access to Retrieve Current Weather Based on Your Location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
