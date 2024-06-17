@@ -10,10 +10,19 @@ import Foundation
 
 class FavouritesViewModel: ObservableObject {
   private let weatherApiService = WeatherAPIService()
+  private var weatherForecast: WeatherForecastResponse?
+
   var container: NSPersistentContainer
 
   @Published var cities: [CityEntity] = []
   @Published var weatherData: [String: CurrentWeatherResponse] = [:]
+  @Published var errorMessage: String?
+
+  @Published var forecastDaysOfWeek: [String] = []
+  @Published var forecastTemperatures: [String] = []
+  @Published var forecastDescriptions: [String] = []
+  @Published var forecastIconNames: [String] = []
+
   init() {
     self.container = NSPersistentContainer(name: "FavouritesContainer")
     container.loadPersistentStores { _, error in
@@ -21,7 +30,6 @@ class FavouritesViewModel: ObservableObject {
         print("ERROR LOADING CORE DATA. \(error)")
       }
     }
-    //  clearAllCities()
   }
 
   func fetchCities() {
@@ -55,6 +63,7 @@ class FavouritesViewModel: ObservableObject {
     do {
       try container.viewContext.save()
       fetchCities() // Call fetchCities synchronously
+      fetchCities()
       completion(true)
     } catch {
       print("Error saving city \(name): \(error)")
@@ -69,7 +78,25 @@ class FavouritesViewModel: ObservableObject {
         self.weatherData[city] = weather
       }
     } catch {
-      print("Error fetching weather data for \(city): \(error)")
+      print("Error for \(city): \(error)")
+    }
+  }
+
+  func fetchWeatherForecast(for city: String) {
+    Task {
+      do {
+        let weatherData = try await weatherApiService.getWeatherForecast(city: city)
+        self.weatherForecast = weatherData
+        WeatherUtilities.updateWeatherForecast(
+          forecastResponse: weatherData,
+          forecastDaysOfWeek: &forecastDaysOfWeek,
+          forecastTemperatures: &forecastTemperatures,
+          forecastDescriptions: &forecastDescriptions,
+          forecastIconNames: &forecastIconNames
+        )
+      } catch {
+        self.errorMessage = error.localizedDescription
+      }
     }
   }
 
@@ -80,6 +107,7 @@ class FavouritesViewModel: ObservableObject {
     do {
       try container.viewContext.execute(batchDeleteRequest)
       fetchCities() // Update the local array after deletion
+      fetchCities()
     } catch {
       print("Error clearing cities \(error)")
     }
