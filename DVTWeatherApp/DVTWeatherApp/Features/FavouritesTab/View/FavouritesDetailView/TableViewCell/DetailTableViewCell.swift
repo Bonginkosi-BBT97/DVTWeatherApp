@@ -11,5 +11,5 @@ class DetailTableViewCell: UITableViewCell {
   @IBOutlet var dayOfWeekLabel: UILabel!
   @IBOutlet var weatherIcon: UIImageView!
   @IBOutlet var forecastTempLabel: UILabel!
-  var backgroundColour: UIColor?
+  @IBOutlet var stackViewContainer: UIStackView!
 }

@@ -15,6 +15,8 @@ extension FavouritesSearchViewController: UITableViewDelegate, UITableViewDataSo
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    cell.backgroundColor = .white
+    cell.textLabel?.textColor = .black
     cell.textLabel?.text = filteredCities[indexPath.row].name
     return cell
   }
