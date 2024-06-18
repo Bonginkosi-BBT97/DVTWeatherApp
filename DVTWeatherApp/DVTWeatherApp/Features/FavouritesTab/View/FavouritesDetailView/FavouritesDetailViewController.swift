@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import SwiftUI
 import UIKit
 
 class FavouritesDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -33,7 +34,9 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationItem.backBarButtonItem?.tintColor = .white
+
+    navigationController?.navigationBar.tintColor = .white
+
     if let cityName = cityName {
       favouritesViewModel.fetchWeatherForecast(for: cityName)
     }
@@ -95,7 +98,7 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
     cell.dayOfWeekLabel.text = favouritesViewModel.forecastDaysOfWeek[indexPath.row]
     cell.forecastTempLabel.text = "\(favouritesViewModel.forecastTemperatures[indexPath.row])°"
     cell.weatherIcon.image = UIImage(named: favouritesViewModel.forecastIconNames[indexPath.row])
-    cell.backgroundColour = backgroundColour
+    cell.stackViewContainer.backgroundColor = backgroundColour
 
     return cell
   }
