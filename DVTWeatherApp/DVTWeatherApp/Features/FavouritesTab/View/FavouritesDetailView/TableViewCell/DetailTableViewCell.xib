@@ -43,13 +43,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="X2p-7v-J4h" firstAttribute="centerX" secondItem="tTF-r6-fFS" secondAttribute="centerX" id="3Hw-6C-jnO"/>
                             <constraint firstItem="X2p-7v-J4h" firstAttribute="centerY" secondItem="tTF-r6-fFS" secondAttribute="centerY" id="OI5-8I-1Fy"/>
                         </constraints>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="tTF-r6-fFS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8Jc-e2-Jwv"/>
                     <constraint firstItem="tTF-r6-fFS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B1X-zZ-nxq"/>
@@ -64,6 +65,7 @@
             <connections>
                 <outlet property="dayOfWeekLabel" destination="OlP-Jj-cqh" id="j4l-dP-kfi"/>
                 <outlet property="forecastTempLabel" destination="ElC-1z-a2W" id="fuz-Dz-wR8"/>
+                <outlet property="stackViewContainer" destination="tTF-r6-fFS" id="duB-ZB-2sS"/>
                 <outlet property="weatherIcon" destination="X2p-7v-J4h" id="5Ha-aM-0wN"/>
             </connections>
             <point key="canvasLocation" x="139.69465648854961" y="-11.971830985915494"/>
@@ -71,9 +73,6 @@
     </objects>
     <resources>
         <image name="clear" width="13" height="13"/>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
