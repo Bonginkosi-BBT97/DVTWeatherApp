@@ -17,24 +17,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="333" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-r6-fFS">
-                        <rect key="frame" x="0.0" y="0.0" width="330" height="60"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-r6-fFS">
+                        <rect key="frame" x="0.0" y="0.0" width="333" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Day of the week" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlP-Jj-cqh">
-                                <rect key="frame" x="0.0" y="20" width="50" height="20.333333333333329"/>
+                                <rect key="frame" x="0.0" y="20" width="82" height="20.333333333333329"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="DgX-mt-w9t"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear" translatesAutoresizingMaskIntoConstraints="NO" id="X2p-7v-J4h">
-                                <rect key="frame" x="140" y="5" width="50" height="50"/>
+                                <rect key="frame" x="144" y="5" width="45" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="AIg-cg-0TX"/>
+                                    <constraint firstAttribute="width" constant="45" id="AIg-cg-0TX"/>
                                     <constraint firstAttribute="height" constant="50" id="yEa-L9-bCh"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElC-1z-a2W">
-                                <rect key="frame" x="280" y="20" width="50" height="20.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElC-1z-a2W">
+                                <rect key="frame" x="251" y="20" width="82" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -46,7 +49,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                <color key="backgroundColor" systemColor="systemBlueColor"/>
                 <constraints>
                     <constraint firstItem="tTF-r6-fFS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8Jc-e2-Jwv"/>
                     <constraint firstItem="tTF-r6-fFS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B1X-zZ-nxq"/>
@@ -68,8 +71,8 @@
     </objects>
     <resources>
         <image name="clear" width="13" height="13"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
