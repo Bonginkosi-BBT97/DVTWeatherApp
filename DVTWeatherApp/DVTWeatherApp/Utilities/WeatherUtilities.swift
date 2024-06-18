@@ -31,6 +31,7 @@ enum WeatherUtilities {
     var uniqueDays = Set<String>()
     var printedDaysCount = 0
 
+    // swiftlint:disable:next large_tuple
     let forecastDetails = forecastResponse.list.map { forecast -> (
       day: String,
       temperature: String,
