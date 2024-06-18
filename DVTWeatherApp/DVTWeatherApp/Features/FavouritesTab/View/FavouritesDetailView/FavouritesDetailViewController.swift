@@ -36,6 +36,7 @@ class FavouritesDetailViewController: UIViewController, UITableViewDataSource, U
     super.viewDidLoad()
 
     navigationController?.navigationBar.tintColor = .white
+    navigationController?.navigationBar.backgroundColor = .black
 
     if let cityName = cityName {
       favouritesViewModel.fetchWeatherForecast(for: cityName)
